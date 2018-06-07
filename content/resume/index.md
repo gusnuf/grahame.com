@@ -11,7 +11,12 @@ https://grahame.com       | jobs@grahame.com
 --- | ---
 Raleigh, NC 27601 | +1 (919) 828-9879
 * * *
-Last Updated on Monday, June 04, 2018.  Visit https://grahame.com/resume for the most current version or https://github.com/gusnuf/resume to see the code that created this resume.
+Last Updated on Thursday, June 07, 2018.  Also available in 
+  [HTML](https://grahame.com/resume/grahame_murray_resume.html), 
+  [PDF](https://grahame.com/resume/grahame_murray_resume.pdf), 
+  [Word](https://grahame.com/resume/grahame_murray_resume.doc), 
+  [plain-text](https://grahame.com/resume/grahame_murray_resume.txt).
+Visit https://github.com/gusnuf/resume to see the code that created this resume.
 
 * * *
 
