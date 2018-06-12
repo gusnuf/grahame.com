@@ -4,7 +4,6 @@ theme: minimal
 
 disableKinds: [RSS, taxonomy, taxonomyTerm]
 languageCode: en-us
-#disqusShortname = "username" # delete this to disable disqus comments
 googleAnalytics: UA-8100748-1
 
 taxonomies:
@@ -14,7 +13,9 @@ taxonomies:
 params:
   author: Grahame Murray
   description: The personal site of Grahame Murray
+  favicon: /favicon.ico
   bio: |
+
     Raleighite husband
 
     Agnostic software engineer
@@ -38,12 +39,13 @@ params:
     Goofy night owl
 
     Curious runner
+
   githubUsername: gusnuf
   accent: indigo
   showBorder: true
   backgroundColor: white
   font: Raleway # should match the name on Google Fonts!
-  profilePic: https://grahame.com/images/headshot-square.jpg
+  profilePic: /headshot-square.jpg
 
   twitter: grahame
   github: gusnuf
@@ -56,12 +58,6 @@ menu:
     - url: /
       name: Home
       weight: 1
-    # - url: /blog/
-    #   name: Blog
-    #   weight: 3
-    # - url: /ego/
-    #   name: Ego
-    #   weight: 4
     - url: /resume/
       name: Resume
       weight: 2
@@ -76,18 +72,12 @@ menu:
     - url: https://www.linkedin.com/in/grahamemurray/
       name: linkedin
       weight: 3
-    # - url: https://twitter.com/grahame/
-    #   name: twitter
-    #   weight: 4
     - url: https://facebook.com/gusnuf/
       name: facebook
-      weight: 5
-    # - url: https://www.instagram.com/gusnuf/
-    #   name: instagram
-    #   weight: 6
+      weight: 4
     - url: https://open.spotify.com/user/gusnuf
       name: spotify
-      weight: 7
+      weight: 5
     - url: https://www.soundcloud.com/gusnuf/
       name: soundcloud
-      weight: 8
+      weight: 6

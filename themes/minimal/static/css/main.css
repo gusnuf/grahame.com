@@ -44,6 +44,7 @@ main {
 }
 
 .intro > .bio {
+    margin-top: 5vh;
     color: #757575;
     font-size: 1.5vh;
 }
