@@ -14,6 +14,7 @@ params:
   author: Grahame Murray
   description: The personal site of Grahame Murray
   favicon: /favicon.ico
+  copyright: "&copy; 2018 All rights reserved. "
   bio: |
 
     Raleighite husband
