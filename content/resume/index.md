@@ -9,9 +9,9 @@ type: page
 # F. Grahame Murray
 https://grahame.com       | jobs@grahame.com
 --- | ---
-Raleigh, NC 27601 | +1 (919) 828-9879
+Raleigh, NC 27604 | +1 (919) 828-9879
 * * *
-Last Updated on Thursday, June 07, 2018.  Also available in 
+Last Updated on Monday, February 04, 2019.  Also available in 
   [HTML](https://grahame.com/resume/grahame_murray_resume.html), 
   [PDF](https://grahame.com/resume/grahame_murray_resume.pdf), 
   [Word](https://grahame.com/resume/grahame_murray_resume.doc), 
@@ -44,8 +44,8 @@ I am looking for a full-time position as a lead, principal, or senior software (
 
 ## EXPERIENCE
 
-### Senior Principal Software Engineer, *September 2016 - Present*
-#### Nuance Communications  -    *Durham, NC*
+### Senior Principal Software Engineer, *September 2016 - February 2019*
+#### Nuance Communications  -    *Raleigh, NC*
 
 
 ##### Automotive division, Cloud Reliability Engineering, Infrastructure team
@@ -186,23 +186,23 @@ Kubernetes, Mesos, JBoss, Tomcat, Zend Framework, Spring, Resin, ColdFusion, Vig
 
   **Container**: Docker, Mesos, Kubernetes, Marathon
 
-  **Virtual Network**: Calico, Flannel, OpenVSwitch
+  **Virtual Network**: Calico, istio, Flannel, Weave, OpenVSwitch
 
   **Service Discovery**: Consul, Zookeeper, Etcd, MesosDNS
 
-  **Configuration Management**: Puppet, MCollective, Ansible, Chef
+  **Configuration Management**: Puppet, Ansible, MCollective, Chef
 
   **Search**: ElasticSearch, Kibana, Logstash, ElastAlert, ReadonlyREST, SOLR, Lucene, Verity
 
   **Monitoring**: Sensu, Nagios, SNMP, Cacti, SyslogNG
 
-  **Metrics**: Graphite, Carbon, Collectd, Statsd, Bucky
+  **Metrics**: Graphite, Prometheus, Carbon, Collectd, Statsd, Bucky
 
-  **Identity/Auth**: FreeIPA, OpenLDAP, OpenID, OAuth
+  **Identity/Auth**: FreeIPA, Vault, OpenLDAP, OpenID, OAuth
 
-  **NoSQL**: Cassandra, Hadoop/HBase, MongoDB, CouchDB, Riak
+  **NoSQL**: Cassandra, HBase, MongoDB, CouchDB, Riak
 
-  **Reporting**: Spark, Hadoop, Pentaho, Jasper, Crystal Reports
+  **Reporting**: Spark, Hadoop, Pig, Hive, Pentaho, Jasper, Crystal Reports
 
   **Messaging**: RabbitMQ, ActiveMQ, JBossMQ, JBoss Messaging
 
@@ -216,9 +216,9 @@ Kubernetes, Mesos, JBoss, Tomcat, Zend Framework, Spring, Resin, ColdFusion, Vig
 
   **Web UI**: jQuery, YUI
 
-  **Build**: Ant, Jenkins, Hudson, Cruise Control, Maven2, Make
+  **Build**: Ant, Jenkins, Travis, Hudson, Cruise Control, Maven, Ivy, Make
 
-  **Unit Testing**: py.test, JUnit, Cobetura, Mockito, EasyMock, JMock, Cactus, TestNG
+  **Unit Testing**: py.test, JUnit, Cobertura, Mockito, EasyMock, JMock, Cactus, TestNG
 
   **Performance Testing**: JMeter, Apache Benchmark, JProbe
 
@@ -230,7 +230,7 @@ Kubernetes, Mesos, JBoss, Tomcat, Zend Framework, Spring, Resin, ColdFusion, Vig
 
   **MVC**: Django, Ember, Angular, Struts, Grails, Spring MVC, Cake PHP, Bebop
 
-  **Virtualization**: AWS, Vagrant, Azure, VMWare ESX, VirtualBox, Xen
+  **Virtualization**: AWS, Vagrant, Azure, ESX, VirtualBox, Xen
 
   **Text Editor**: vi(m), Atom, Emacs
 

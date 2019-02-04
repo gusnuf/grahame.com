@@ -5,6 +5,6 @@ Grahame Murray's personal website builder
 
 ```shell
 brew install hugo
-cp $RESUME_ROOT/dist/grahame_murray_resume.md content/resume/index.html
+cp $RESUME_ROOT/dist/grahame_murray_resume.md content/resume/index.md
 hugo
 ```
