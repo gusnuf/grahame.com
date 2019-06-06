@@ -8,6 +8,7 @@ firebase-debug.log*
 
 public
 static
+content/resume/*.md
 
 # Firebase cache
 .firebase/
