@@ -1,6 +1,6 @@
 baseURL: https://grahame.com/
 title: grahame.com
-theme: minimal
+theme: hugo-goa
 
 disableKinds: [RSS, taxonomy, taxonomyTerm]
 languageCode: en-us
@@ -12,14 +12,28 @@ taxonomies:
 
 params:
   author: Grahame Murray
-  description: The personal site of Grahame Murray
-  favicon: /favicon.ico
-  copyright: "&copy; 2019 All rights reserved. "
-  bio: |
+  favicon: ../favicon.ico
+  bgImg: ../headshot-square.jpg
+  authorimage: ../headshot-square.jpg
+  copyright: "&copy; 2024 All rights reserved."
+  fadeIn: false
+  fadeInIndex: false
+
+  home:
+    introHeight: fullheight # Input either "medium" or "large" or "fullheight"
+    showLatest: true # Show latest blog post summary
+    showAllPosts: false # Set true to list all posts on home page, or set false to link to separate blog list page
+    allPostsArchiveFormat: true # show all posts in an archive format
+    numberOfProjectsToShow: 3 # Maximum number of projects to show on home page. Unset or comment out to show all projects
+    localTime: true # Show your current local time in contact section
+    timeZone: America/Los_Angeles # Your timezone as in the TZ* column of this list: https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+    timeFormat: en-US # Language specific format to use
+
+  description: |
 
     Raleighite husband
 
-    Agnostic software engineer
+    Agnostic father
 
     Cat owning dog lover
 
@@ -46,13 +60,34 @@ params:
   showBorder: true
   backgroundColor: white
   font: Raleway # should match the name on Google Fonts!
-  profilePic: /headshot-square.jpg
+  profilePic: headshot-square.jpg
+  visual:
+    image:
+      enable: true
+      file: ../headshot-square.jpg
+      position: center center
 
-  twitter: grahame
-  github: gusnuf
-  linkedin: grahamemurray
-  facebook: gusnuf
-  email: jobs@grahame.com
+  # twitter: grahame
+  # github: gusnuf
+  # linkedin: grahamemurray
+  # facebook: gusnuf
+  # email: jobs@grahame.com
+
+  social:
+    github: gusnuf
+    twitter: gusnuf
+    facebook: gusnuf
+    linkedin: grahamemurray
+    soundcloud: gusnuf
+    email: jobs@grahame.com
+
+  extra:
+    copyright: "&copy; 2024 All rights reserved."
+    poweredby: true
+    highlightjs: true
+    socialmarkup: false
+    toc: false
+    displayrssicon: false
 
 menu:
   main:
@@ -63,22 +98,27 @@ menu:
       name: Resume
       weight: 2
 
-  icon:
-    - url: mailto:jobs@grahame.com
-      name: envelope-o
-      weight: 1
-    - url: https://github.com/gusnuf/
-      name: github
-      weight: 2
-    - url: https://www.linkedin.com/in/grahamemurray/
-      name: linkedin
-      weight: 3
-    - url: https://facebook.com/gusnuf/
-      name: facebook
-      weight: 4
-    - url: https://open.spotify.com/user/gusnuf
-      name: spotify
-      weight: 5
-    - url: https://www.soundcloud.com/gusnuf/
-      name: soundcloud
-      weight: 6
+    # - identifier: twitter
+    #   pre: <i class='fab fa-twitter fa-lg' />
+    #   url: https://twitter.com/gusnuf
+    #   weight: 3
+
+  # icon:
+  #   - url: mailto:jobs@grahame.com
+  #     name: fas fa-envelope
+  #     weight: 1
+  #   - url: https://github.com/gusnuf/
+  #     name: fab fa-github
+  #     weight: 2
+  #   - url: https://www.linkedin.com/in/grahamemurray/
+  #     name: fab fa-linkedin
+  #     weight: 3
+  #   - url: https://facebook.com/gusnuf/
+  #     name: fab fa-facebook
+  #     weight: 4
+  #   - url: https://open.spotify.com/user/gusnuf
+  #     name: fab fa-spotify
+  #     weight: 5
+  #   - url: https://www.soundcloud.com/gusnuf/
+  #     name: fab fa-soundcloud
+  #     weight: 6
