@@ -1,7 +1,6 @@
 # grahame.com
 
 Grahame Murray's personal website builder
-[![Build Status](https://travis-ci.org/gusnuf/grahame.com.svg?branch=master)](https://travis-ci.org/gusnuf/grahame.com)
 
 ```shell
 brew install hugo

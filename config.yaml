@@ -1,5 +1,5 @@
 baseURL: https://grahame.com/
-title: grahame.com
+title: Grahame
 theme: hugo-goa
 
 disableKinds: [RSS, taxonomy, taxonomyTerm]
