@@ -7,7 +7,7 @@ yarn-error.log*
 firebase-debug.log*
 
 public
-static
+static/resume
 content/resume/*.md
 
 # Firebase cache
