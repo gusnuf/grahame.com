@@ -2,7 +2,7 @@ baseURL: https://grahame.com/
 title: Grahame
 theme: hugo-goa
 
-disableKinds: [RSS, taxonomy, taxonomyTerm]
+disableKinds: [RSS, taxonomy]
 languageCode: en-us
 #googleAnalytics: UA-8100748-1
 
