@@ -1,0 +1,38 @@
+# Personal description pairs
+# Each pair has an adjective (descriptor) and noun (identity/role)
+pairs:
+  - adjective: Raleighite
+    noun: husband
+
+  - adjective: Agnostic
+    noun: father
+
+  - adjective: Curious
+    noun: engineer
+
+  - adjective: Cat owning
+    noun: dog lover
+
+  - adjective: Pescatarian
+    noun: traveler
+
+  - adjective: Anglophile
+    noun: liberal
+
+  - adjective: Musical
+    noun: motorcyclist
+
+  - adjective: Sarcastic
+    noun: brewer
+
+  - adjective: Francophone
+    noun: roboticist
+
+  - adjective: Outdoorsy
+    noun: polymath
+
+  - adjective: Delawarean
+    noun: ISFJ
+
+  - adjective: Goofy
+    noun: night owl

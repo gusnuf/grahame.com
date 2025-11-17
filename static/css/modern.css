@@ -244,6 +244,202 @@ a:focus-visible {
   margin-bottom: 0.25rem;
 }
 
+/* Description pairs (static fallback) */
+.description-pair {
+  margin-bottom: 0.25rem;
+}
+
+.description-pair .adjective {
+  color: var(--color-text-muted);
+}
+
+.description-pair .noun {
+  color: var(--color-text-muted);
+  margin-left: 0.5rem;
+}
+
+/* Description carousel (two independent columns) */
+.description-carousel {
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.carousel-inner {
+  position: relative;
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  min-height: 160px;
+}
+
+.carousel-column {
+  position: relative;
+  height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  min-width: 150px;
+}
+
+.carousel-track {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.carousel-item {
+  font-family: var(--font-secondary);
+  font-weight: 200;
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+  opacity: 0;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transition:
+    opacity 0.8s cubic-bezier(0.6, 0, 0.2, 1),
+    transform 0.8s cubic-bezier(0.6, 0, 0.2, 1),
+    font-size 0.8s ease,
+    font-weight 0.4s ease;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+#adjectives-track .carousel-item {
+  text-align: right;
+  left: 100%;
+  transform: translate(-100%, -50%) scale(0.8);
+}
+
+#adjectives-track .carousel-item.carousel-focus {
+  opacity: 1;
+  transform: translate(-100%, -50%) scale(1);
+}
+
+#adjectives-track .carousel-item.carousel-above {
+  opacity: 0.5;
+  transform: translate(-100%, calc(-50% - 35px)) scale(0.9);
+}
+
+#adjectives-track .carousel-item.carousel-below {
+  opacity: 0.5;
+  transform: translate(-100%, calc(-50% + 35px)) scale(0.9);
+}
+
+#adjectives-track .carousel-item.carousel-far-above {
+  opacity: 0.25;
+  transform: translate(-100%, calc(-50% - 65px)) scale(0.8);
+}
+
+#adjectives-track .carousel-item.carousel-far-below {
+  opacity: 0.25;
+  transform: translate(-100%, calc(-50% + 65px)) scale(0.8);
+}
+
+#adjectives-track .carousel-item.carousel-hidden {
+  transform: translate(-100%, -50%) scale(0.7);
+}
+
+#nouns-track .carousel-item {
+  text-align: left;
+  left: 0%;
+  transform: translate(0%, -50%) scale(0.8);
+}
+
+#nouns-track .carousel-item.carousel-focus {
+  opacity: 1;
+  transform: translate(0%, -50%) scale(1);
+}
+
+#nouns-track .carousel-item.carousel-above {
+  opacity: 0.5;
+  transform: translate(0%, calc(-50% - 35px)) scale(0.9);
+}
+
+#nouns-track .carousel-item.carousel-below {
+  opacity: 0.5;
+  transform: translate(0%, calc(-50% + 35px)) scale(0.9);
+}
+
+#nouns-track .carousel-item.carousel-far-above {
+  opacity: 0.25;
+  transform: translate(0%, calc(-50% - 65px)) scale(0.8);
+}
+
+#nouns-track .carousel-item.carousel-far-below {
+  opacity: 0.25;
+  transform: translate(0%, calc(-50% + 65px)) scale(0.8);
+}
+
+#nouns-track .carousel-item.carousel-hidden {
+  transform: translate(0%, -50%) scale(0.7);
+}
+
+/* Focus - largest, center */
+.carousel-item.carousel-focus {
+  opacity: 1;
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--color-text);
+}
+
+/* One step away - medium size */
+.carousel-item.carousel-above {
+  opacity: 0.5;
+  font-size: 1.1rem;
+  font-weight: 300;
+}
+
+.carousel-item.carousel-below {
+  opacity: 0.5;
+  font-size: 1.1rem;
+  font-weight: 300;
+}
+
+/* Two steps away - smallest */
+.carousel-item.carousel-far-above {
+  opacity: 0.25;
+  font-size: 0.85rem;
+  font-weight: 200;
+}
+
+.carousel-item.carousel-far-below {
+  opacity: 0.25;
+  font-size: 0.85rem;
+  font-weight: 200;
+}
+
+.carousel-item.carousel-hidden {
+  opacity: 0;
+}
+
+/* Accessibility: visually hidden but available to screen readers */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Respect user motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .description-carousel {
+    display: none !important;
+  }
+
+  .description-pair {
+    display: block !important;
+  }
+}
+
 /* ============================================================================
    Social Links
    ============================================================================ */
@@ -348,7 +544,7 @@ a:focus-visible {
 }
 
 .nav-underline .menu-item::after {
-  content: '' !important;
+  content: "" !important;
   margin: 0 !important;
   position: absolute;
   bottom: 0;

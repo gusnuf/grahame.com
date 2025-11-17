@@ -68,5 +68,10 @@
         </footer>
         {{ end }}
     </div>
+
+    <!-- Description carousel script (only on homepage) -->
+    {{ if .IsHome }}
+    <script src="{{ "js/description-carousel.js" | relURL }}"></script>
+    {{ end }}
 </body>
 </html>

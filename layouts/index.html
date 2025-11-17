@@ -1,6 +1,6 @@
 {{ define "main" }}
 {{- $author := .Site.Params.author -}}
-{{- $description := .Site.Params.description -}}
+{{- $descriptions := .Site.Data.descriptions.pairs -}}
 {{- $social := .Site.Params.social -}}
 {{- $profilePic := .Site.Params.profilePic -}}
 
@@ -22,10 +22,27 @@
 </header>
 
 <main id="main-content" role="main">
-    {{ if $description }}
+    {{ if $descriptions }}
     <section class="info" aria-label="About">
-        <div class="description">
-            {{ $description | replaceRE "\n\n" "<br><br>" | safeHTML }}
+        <!-- Semantic pairs for screen readers and no-JS fallback -->
+        <div class="description" id="description-static">
+            {{ range $descriptions }}
+            <div class="description-pair">
+                <span class="adjective">{{ .adjective }}</span>
+                <span class="noun">{{ .noun }}</span>
+            </div>
+            {{ end }}
+        </div>
+        <!-- Carousel will be injected here by JavaScript -->
+        <div class="description-carousel" id="description-carousel" aria-hidden="true" style="display: none;">
+            <div class="carousel-inner">
+                <div class="carousel-column">
+                    <div class="carousel-track" id="adjectives-track"></div>
+                </div>
+                <div class="carousel-column">
+                    <div class="carousel-track" id="nouns-track"></div>
+                </div>
+            </div>
         </div>
     </section>
     {{ end }}
