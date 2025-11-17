@@ -1,0 +1,115 @@
+{{ define "main" }}
+{{- $resume := .Site.Data.resume -}}
+{{- $online := $resume.xOnline -}}
+
+{{ if .Site.Menus.main }}
+<nav class="main-menu nav-underline" aria-label="Main navigation">
+  {{ range .Site.Menus.main }}
+  <a href="{{ .URL }}" class="menu-item">{{ .Name }}</a>
+  {{ end }}
+</nav>
+{{ end }}
+
+<article class="resume">
+  <header role="banner">
+    <h1>{{ $resume.basics.name }}</h1>
+    <address style="font-style: normal;">
+      {{ $resume.basics.location.city }}, {{ $resume.basics.location.region }} {{ $resume.basics.location.postalCode }}<br>
+      <a href="tel:{{ $resume.basics.phone }}">{{ $resume.basics.phone }}</a> |
+      <a href="mailto:{{ $resume.basics.email }}">{{ $resume.basics.email }}</a><br>
+      <a href="{{ $resume.basics.url }}">{{ $resume.basics.url }}</a>
+    </address>
+    <p>
+      <small>Last Updated: <time datetime="{{ now.Format "2006-01-02" }}">{{ now.Format "Monday, January 2, 2006" }}</time></small>
+      <br>
+      <small>Also available in:{{- " " -}}
+      {{- range $i, $format := $online.formats }}
+      {{ if $i }} | {{ end }}<a href="/resume/grahame_murray_resume.{{ $format.extension }}">{{ $format.name }}</a>
+      {{- end -}}
+      {{- " " -}}| <a href="{{ $online.source }}" target="_blank" rel="noopener noreferrer">Source code</a>
+      </small>
+    </p>
+  </header>
+
+  <section>
+    <h2>Summary</h2>
+    <p>{{ $resume.basics.summary }}</p>
+  </section>
+
+  <section>
+    <h2>Highlights</h2>
+    <ul>
+      {{- range $resume.xHighlights }}
+      <li>{{ . }}</li>
+      {{- end }}
+    </ul>
+  </section>
+
+  <section>
+    <h2>Experience</h2>
+    {{- range $job := $resume.work }}
+    <div class="job">
+      <div class="job-header">
+        <h3 class="job-title">{{ $job.position }}</h3>
+        <p class="job-meta">
+          <span class="job-date">
+            <em>{{ (time.AsTime (printf "%s-01" $job.startDate)).Format "January 2006" }} - {{ if $job.endDate }}{{ (time.AsTime (printf "%s-01" $job.endDate)).Format "January 2006" }}{{ else }}Present{{ end }}</em>
+          </span>
+        </p>
+      </div>
+      <p class="job-company">
+        <strong>{{ if $job.url }}<a href="{{ $job.url }}" target="_blank" rel="noopener noreferrer">{{ $job.name }}</a>{{ else }}{{ $job.name }}{{ end }}</strong>
+        <span class="job-location"> — {{ $job.location }}</span>
+      </p>
+      {{- if or $job.xOrganization.division $job.xOrganization.department $job.xOrganization.team }}
+      <p class="job-org">
+        <em>{{ if $job.xOrganization.division }}{{ $job.xOrganization.division }}{{ end }}{{ if and $job.xOrganization.division $job.xOrganization.department }}, {{ end }}{{ if $job.xOrganization.department }}{{ $job.xOrganization.department }}{{ end }}{{ if and (or $job.xOrganization.division $job.xOrganization.department) $job.xOrganization.team }}, {{ end }}{{ if $job.xOrganization.team }}{{ $job.xOrganization.team }}{{ end }}</em>
+      </p>
+      {{- end }}
+
+      {{- if $job.xProjects }}
+      <div class="job-projects">
+        <strong>Projects:</strong>
+        {{- range $i, $project := $job.xProjects }}
+          {{ if $i }}, {{ end }}{{ if $project.url }}<a href="{{ $project.url }}" target="_blank" rel="noopener noreferrer">{{ $project.name }}</a>{{ else }}{{ $project.name }}{{ end }}
+        {{- end }}
+      </div>
+      {{- end }}
+
+      <ul class="job-highlights">
+        {{- range $job.highlights }}
+        <li>{{ . }}</li>
+        {{- end }}
+      </ul>
+    </div>
+    {{- end }}
+  </section>
+
+  <section>
+    <h2>Computer Skills</h2>
+    {{- range $skill := $resume.skills }}
+    <p><strong>{{ $skill.name }}:</strong> {{ delimit $skill.keywords ", " }}</p>
+    {{- end }}
+  </section>
+
+  <section>
+    <h2>Education</h2>
+    {{- range $edu := $resume.education }}
+    <div style="margin-bottom: 1em;">
+      <p><strong><a href="{{ $edu.url }}">{{ $edu.institution }}</a></strong> - {{ $edu.xLocation }}<br>
+      {{ if $edu.studyType }}{{ $edu.studyType }}{{ if $edu.area }} in {{ $edu.area }}{{ end }}<br>{{ end }}
+      {{ if $edu.courses }}<small>Courses in {{ delimit $edu.courses ", " }}</small>{{ end }}
+      </p>
+    </div>
+    {{- end }}
+  </section>
+
+  <section>
+    <h2>References</h2>
+    {{- range $resume.references }}
+    <p>{{ .name }}</p>
+    {{- end }}
+  </section>
+</article>
+
+{{ end }}

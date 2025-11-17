@@ -1,0 +1,336 @@
+# Resume data in JSON Resume format (YAML)
+# https://jsonresume.org/schema/
+
+basics:
+  name: F. Grahame Murray
+  label: Senior Principal Software Engineer
+  email: jobs@grahame.com
+  phone: +1 (919) 828-9879
+  url: https://grahame.com
+  summary: Senior Principal Software Engineer with extensive experience building scalable systems, internal platforms, and developer-facing tools. A curious generalist with a track record of leading architecture efforts, improving developer experience, and driving cross-functional impact across infrastructure and application domains.
+  location:
+    city: Raleigh
+    region: NC
+    postalCode: "27608"
+    countryCode: US
+
+# Custom extension: career highlights (not in JSON Resume standard)
+xHighlights:
+  - Extensive software development, design, and operations experience
+  - Highly curious generalist
+  - Focus on platform engineering and developer experience
+  - Depth in language, educational, and community projects
+
+# Custom extension: online metadata for resume distribution
+xOnline:
+  site: https://grahame.com
+  base: https://grahame.com/resume
+  formats:
+    - name: HTML
+      extension: html
+    - name: PDF
+      extension: pdf
+    - name: Word
+      extension: doc
+    - name: plain-text
+      extension: txt
+  source: https://github.com/gusnuf/grahame.com
+
+work:
+  - name: GrayM Systems
+    position: Founder
+    url: https://graym.com
+    startDate: "2025-03"
+    location: Raleigh, NC
+    xOrganization:
+      division: null
+      department: null
+      team: null
+    xProjects:
+      - name: LangGuessr
+        url: https://langguessr.world
+      - name: Cloud Architecture Engagement
+        url: null
+    highlights:
+      - Founded technology company to explore entrepreneurial opportunities while maintaining hands-on technical expertise
+      - Built LangGuessr game using modern JavaScript, Python, and cloud infrastructure demonstrating full-stack capabilities
+      - Provided strategic cloud architecture and platform planning expertise for a growing technology company
+      - Applied enterprise-grade architecture patterns to help optimize cloud infrastructure and development workflows
+
+  - name: Progress Software
+    position: Distinguished Engineer
+    url: https://www.progress.com/
+    startDate: "2024-11"
+    endDate: "2025-02"
+    location: Raleigh, NC
+    xOrganization:
+      division: Digital Experience
+      department: ShareFile
+      team: Engineering
+    xProjects:
+      - name: Transition
+        url: null
+    highlights:
+      - Progress Software bought ShareFile from CSG
+      - Helped with transition, cross training, and writing documentation
+
+  - name: Cloud Software Group
+    position: Senior Principal Software Engineer
+    url: https://www.cloud.com/
+    startDate: "2022-08"
+    endDate: "2024-10"
+    location: Raleigh, NC
+    xOrganization:
+      division: ShareFile
+      department: Solution Platform
+      team: Engineering
+    xProjects:
+      - name: Enterprise Architecture
+        url: null
+      - name: Integrations
+        url: null
+      - name: Event Bus
+        url: null
+      - name: Information Intake
+        url: null
+      - name: User-Defined Data Tables
+        url: null
+    highlights:
+      - Started at Citrix but was soon acquired by CSG
+      - Evaluated and selected Integration PaaS vendor
+      - Designed a new enterprise architecture for ShareFile
+      - Built system-wide event bus using DAPR, Kafka, and Cloud Events that triggers Domino Workflows
+      - Architected several microservices using Piral, React, NestJS, NodeJS, DAPR, Kafka, and MongoDB such as Integrations, Information Intake, Data Tables, and User Defined Forms
+      - Organized and ran architecture review boards and design committees to facilitate collaboration
+      - Evangelized internal platform architecture as a product, driving cross-team adoption and enabling scalable self-service capabilities across Engineering, Product, and Design
+      - Mentored engineers, participated in design and code reviews, actively explored the next solutions, and fixed the tougher problems
+      - Introduced Backstage as a developer knowledge base and architecture portal
+
+  - name: Deutsche Bank
+    position: Director - Lead Engineer
+    url: https://www.db.com/
+    startDate: "2020-05"
+    endDate: "2022-08"
+    location: Cary, NC
+    xOrganization:
+      division: CTO
+      department: Cloud Services
+      team: Core Engineering
+    xProjects:
+      - name: GCP Control Plane
+        url: null
+      - name: Landing Zones
+        url: null
+      - name: Module Authoring Framework
+        url: null
+    highlights:
+      - Completed Global Enterprise Engineer program to be in the top 5% of the bank's engineers
+      - Created and led a multi-region engineering team to build and operate a GCP Control Plane
+      - Designed internal Landing Zone platform as a product, enabling developer self-service and safe, policy-driven GCP provisioning via GitOps workflows with GitHub Actions and Terraform Enterprise
+      - Secured Terraform Enterprise with SAML, OAuth against AAD and later GitHub OIDC to meet banking regulations
+      - Architected mechanisms to allow the platform to be safely extended by the community via inner-sourcing
+      - Delivered Landing Zones to 250+ application and infrastructure teams
+      - Constructed standardized Terraform module authoring framework
+      - Regularized GCP organization management via Terraform Infrastructure as Code
+      - Drove platform adoption through enablement campaigns—producing docs, training, internal events, and cultivating platform champions across 250+ engineering teams
+      - Participated in compliance audits
+
+  - name: Deutsche Bank
+    position: Vice President - Lead Engineer
+    url: https://www.db.com/
+    startDate: "2019-02"
+    endDate: "2020-05"
+    location: Cary, NC
+    xOrganization:
+      division: Global Transaction Banking
+      department: Digital Office
+      team: Data Platform
+    xProjects:
+      - name: GTB Data Platform
+        url: null
+    highlights:
+      - Created a Data Platform out of native Azure components, namely Databricks, DataLake, SQL DataWarehouse, EventHub, Monitor, and AzureML
+      - Automated and orchestrated Data Platform using Azure DevOps, Terraform, Docker, and Ansible
+      - Evaluated Cloud Custodian in Azure
+
+  - name: Nuance Communications
+    position: Senior Principal Software Engineer
+    url: https://www.nuance.com/
+    startDate: "2016-09"
+    endDate: "2019-02"
+    location: Raleigh, NC
+    xOrganization:
+      division: Automotive division
+      department: Cloud Reliability Engineering
+      team: Infrastructure team
+    xProjects:
+      - name: Mobile Compute Platform
+        url: null
+      - name: Mobile "Visibility" stack
+        url: null
+      - name: Mobile Shared and Core Services
+        url: null
+      - name: Jenkins 2.0 CI/CD pipelines
+        url: null
+      - name: Kubernetes Sensu Checks
+        url: null
+      - name: Swype Connect
+        url: null
+    highlights:
+      - Swype's Connect Operations team moved to the hosting group for the Mobile division, which later became to the new Automotive division
+      - Remained in 1st tier on-call rotation for Swype Connect
+      - Implemented Foreman for system management and provisioning of bare metal, ESX, and Azure instances
+      - Deployed infrastructure world-wide in Azure using purpose-built and reusable Terraform modules
+      - Integrated Katello for management of system and application content across all datacenters
+      - Rolled out FreeIPA to centrally manage SSL certificates, Kerberos, DNS, system auth (sssd), and application auth
+      - Designed and built proof-of-concept multi-tenant compute platform using Mesos, Marathon, Consul, Calico, HAProxy and Docker to support auto-scaling and blue-green deployments of microservices
+      - Architected a solution to provide applications and systems "Visibility" for our customers using ELK for logs, Graphite for metrics, and Sensu for alerts
+      - Built and maintained centralized, per-datacenter, secure, multi-tenant, ELK-stack clusters for "Visibility" using Elasticsearch, Kibana, Logstash, ElastAlert, and ReadonlyREST
+      - Created go app that generated Sensu checks for services running inside Kubernetes, querying API for services annotated with configmaps that describe alert thresholds
+      - Deployed Jenkins 2.0 integrated with GitLab for CICD. Built shared pipelines (as code) to build all our RPMs, Docker images, and Puppet modules
+      - Made and/or used rspec-tested Puppet 4 modules to deploy all of the above
+      - Authored Puppet 4 "base" system module to manage all fundamental aspects of our systems, including puppet, mco, auth, sshd, time, osquery, limits, firewall, auditd, packages, sysctl, monitoring, logs, SELinux, DNS, and metrics
+      - Used Packer to bake Azure images for faster provisioning
+      - Setup a CI/CD pipeline to package each customer's "visibility" configurations (Kibana dashboards, Logstash configs, ElastAlert rules, and Grafana dashboards) and install them on the appropriate clusters
+      - Documented our platforms and stacks, evangelized them to our customers, and assisted with customer on-boarding
+
+  - name: Nuance Communications
+    position: Principal Software Engineer
+    url: https://www.nuance.com/
+    startDate: "2012-01"
+    endDate: "2016-09"
+    location: Durham, NC
+    xOrganization:
+      division: Mobile division
+      department: TextIO R&D
+      team: Connect Operations team
+    xProjects:
+      - name: Swype Connect
+        url: null
+      - name: Language Lab
+        url: null
+    highlights:
+      - Swype was acquired by Nuance!
+      - Continued the development and improvement of the Swype Connect API, with the main focus on performance, allowing us to scale to hundreds of millions users
+      - Improved visibility of our connected services, using Graphite, statsd, collectd, Grafana, Kibana, and SNMP, giving us insight and trending data into how our application is performing and being used
+      - Switched from EC2 Auto-Scale to a Puppet managed, but manually scaled system
+      - Migrated SwypeConnect from AWS to an in-house, managed ESX cluster
+      - Used Hadoop and Pig to mine Cassandra for application usage and trend data
+      - Built second API in Go, wrapping core business logic written in C, to support real-time predictions in the cloud
+      - Assumed responsibility of legacy Java/Spring language database management system
+      - Built server support for on-device storefront
+      - Deployed and support applications in Chinese datacenters
+
+  - name: Swype
+    position: Senior Systems Engineer
+    url: http://www.swype.com/
+    startDate: "2011-06"
+    endDate: "2011-12"
+    location: Durham, NC
+    xOrganization:
+      division: null
+      department: Engineering
+      team: Connect Operations team
+    xProjects:
+      - name: Swype Connect
+        url: null
+    highlights:
+      - Came on board to lead the effort of building a high-scale web-service to support tens of millions of mobile transactions per day, to enhance phones using the Swype keyboard
+      - Built a multi-datacenter, geographically redundant, Python/WSGI web-service to support millions of write-heavy requests per day, backed by a similarly redundant Cassandra cluster
+      - Hosted in Amazon Web Services, for ease of build-out and managed infrastructure, utilizing EC2, AutoScale, CloudFront, CloudWatch, S3, Route53, RDS, ElasticCache
+      - Used EC2 auto-scaling to ensure a timely response to customer demands
+      - Built a true DevOps team, using PagerDuty, Nagios, Graylog, SyslogNG, and EC2, plus our stateless custom web service that we both developed and operated in Production
+
+skills:
+  - name: Programming Languages
+    keywords:
+      - Python
+      - Javascript/TypeScript
+      - Go (Golang)
+      - Java
+      - Bash
+
+  - name: Databases
+    keywords:
+      - Cassandra
+      - MongoDB
+      - MySQL/Maria
+      - PostgreSQL
+      - MS SQL
+
+  - name: Cloud Platforms
+    keywords:
+      - Google Cloud Platform (GCP)
+      - Amazon Web Services (AWS)
+      - Microsoft Azure
+
+  - name: Data Systems
+    keywords:
+      - Kafka
+      - Redis
+      - Databricks
+      - Bigtable
+
+  - name: Development
+    keywords:
+      - React
+      - Node.js
+      - NestJS
+
+  - name: CI/CD
+    keywords:
+      - Git
+      - GitHub Actions
+      - GitLab
+
+  - name: Infrastructure
+    keywords:
+      - Kubernetes
+      - Docker
+      - Terraform
+      - DAPR
+      - Helm
+
+education:
+  - institution: Goucher College
+    url: https://www.goucher.edu/
+    area: Computer Science
+    studyType: BA
+    startDate: null
+    endDate: null
+    score: null
+    courses:
+      - Java
+      - LISP
+      - 3D Graphics
+      - A.I.
+      - Assembly
+      - Software Engineering
+      - Algorithms
+      - Hardware Architecture
+      - Computation
+    xLocation: Towson, MD
+
+  - institution: University of Delaware
+    url: https://www.udel.edu/
+    area: Computer Science
+    studyType: Graduate & Undergraduate Courses
+    startDate: null
+    endDate: null
+    score: null
+    courses:
+      - C
+      - C++
+      - Compiler Design
+      - Computer Graphics
+      - Multimedia Design
+    xLocation: Newark, DE
+
+references:
+  - name: Available upon request
+    reference: ""
+
+meta:
+  canonical: https://raw.githubusercontent.com/jsonresume/resume-schema/master/schema.json
+  version: v1.0.0
+  lastModified: "2025-10-28"

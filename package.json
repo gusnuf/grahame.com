@@ -1,0 +1,17 @@
+{
+  "name": "grahame.com",
+  "version": "1.0.0",
+  "description": "Personal website for Grahame Murray",
+  "scripts": {
+    "build": "./scripts/build-resume-formats.sh",
+    "dev": "hugo server -D --disableFastRender",
+    "clean": "rm -rf public"
+  },
+  "keywords": [],
+  "author": "Grahame Murray",
+  "license": "ISC",
+  "packageManager": "pnpm@10.22.0",
+  "devDependencies": {
+    "playwright": "^1.56.1"
+  }
+}

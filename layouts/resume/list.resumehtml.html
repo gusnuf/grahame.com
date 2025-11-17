@@ -1,0 +1,112 @@
+{{ $resume := .Site.Data.resume }}{{ $online := $resume.xOnline }}<html>
+    <head>
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Resume of {{ $resume.basics.name }}</title>
+    </head>
+    <body>
+        <div id="centercontent">
+            <span style="font-size:25px; font-weight:bold">{{ $resume.basics.name }}</span>
+            <br>
+            {{ $resume.basics.location.city }}, {{ $resume.basics.location.region }}
+{{ $resume.basics.location.postalCode }}
+            <br>
+            <table cellpadding="0" cellspacing="0">
+                <tr>
+                    <th align="right">Home:&nbsp;</th><td>{{ $resume.basics.phone }}</td><td width="15"></td>
+                </tr>
+                <tr>
+                    <th align="right">Email:&nbsp;</th><td>{{ $resume.basics.email }}</td><td width="15"></td><th align="right">Web:&nbsp;</th><td><a href="{{ $resume.basics.url }}">{{ $resume.basics.url }}</a></td>
+                </tr>
+            </table>
+            <hr>
+            <span id="updated" style="font-size=8pt">Last Updated: {{ now.Format "Monday, January 2, 2006" }}.</span>
+            <br>
+            <span id="online" style="font-size=8pt">
+    	Visit <a href="{{ $online.base }}">{{ $online.base }}</a> for the most current version, available in{{- " " -}}
+    	{{- range $i, $format := $online.formats -}}
+    	{{- if $i }}, {{ end -}}
+    	<a href="{{ $online.base }}/grahame_murray_resume.{{ $format.extension }}">{{ $format.name }}</a>
+    	{{- end -}}{{- " " -}}versions, or
+    	<a href="{{ $online.source }}">{{ $online.source }}</a> to see the code that created this resume.
+	</span>
+            <p></p>
+            <span class="header" style="font-weight:bold">SUMMARY</span>
+            <br>
+            {{ $resume.basics.summary }}
+            <p></p>
+            <span class="header" style="font-weight:bold">HIGHLIGHTS</span>
+            <br>
+            <ul>
+                {{- range $resume.xHighlights }}
+                <li>{{ . }}</li>
+                {{- end }}
+            </ul>
+            <p></p>
+            <span class="header" style="font-weight:bold">EXPERIENCE</span>
+            <br>
+            <table cellpadding="7" cellspacing="0">
+                {{- range $job := $resume.work }}
+                <tr>
+                    <td><b>{{ $job.position }}</b>,
+	        {{ (time.AsTime (printf "%s-01" $job.startDate)).Format "January 2006" }} - {{ if $job.endDate }}{{ (time.AsTime (printf "%s-01" $job.endDate)).Format "January 2006" }}{{ else }}Present{{ end }}
+                        <br>
+                        <em>
+                        {{- if $job.xOrganization.division }}{{ $job.xOrganization.division }}{{ end -}}
+                        {{- if and $job.xOrganization.division $job.xOrganization.department }}, {{ end -}}
+                        {{- if $job.xOrganization.department }}{{ $job.xOrganization.department }}{{ end -}}
+                        {{- if and (or $job.xOrganization.division $job.xOrganization.department) $job.xOrganization.team }}, {{ end -}}
+                        {{- if $job.xOrganization.team }}{{ $job.xOrganization.team }}{{ end -}}
+                        </em></td><td>{{ if $job.url }}<a href="{{ $job.url }}">{{ $job.name }}</a>{{ else }}{{ $job.name }}{{ end }}</td><td>{{ $job.location }}</td>
+                </tr>
+                <tr>
+                    <td colspan="2" rowspan="2" valign="top">
+                        <ul>
+                            {{- range $job.highlights }}
+                            <li>{{ . }}</li>
+                            {{- end }}
+                        </ul>
+                    </td><td width="25%" height="10%" bgcolor="#d4d4c4" valign="top" style="font-size:12px; font-family:helvetica"><span style="font-weight:bold; text-decoration:underline">PROJECTS</span>:
+                        <br>
+                        {{- range $job.xProjects }}
+                        + {{ if .url }}<a href="{{ .url }}">{{ .name }}</a>{{ else }}{{ .name }}{{ end }}
+                        <br>
+                        {{- end }}
+                    </td><td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td colspan="3" height="1"></td>
+                </tr>
+                {{- end }}
+            </table>
+            <p></p>
+            <p></p>
+            <span class="header" style="font-weight:bold">COMPUTER SKILLS</span>
+            <br>
+            {{- range $skill := $resume.skills }}
+            <b>{{ $skill.name }}</b>:
+            <br>
+            {{ delimit $skill.keywords ", " }}
+            <p></p>
+            {{- end }}
+            <span class="header" style="font-weight:bold">EDUCATION</span>
+            <br>
+            {{- range $edu := $resume.education }}
+            <a href="{{ $edu.url }}">{{ $edu.institution }}</a> {{ $edu.xLocation }}
+            <br>
+            {{ if $edu.studyType }}{{ $edu.studyType }}{{ if $edu.area }} in {{ $edu.area }}{{ end }}{{ end }}
+            <br>
+            {{ if $edu.courses }}Courses in {{ delimit $edu.courses ", " }}{{ end }}
+            <p></p>
+            {{- end }}
+            <p></p>
+            <span class="header" style="font-weight:bold">REFERENCES</span>
+            <br>
+            {{- range $resume.references }}
+            {{ .name }}
+            {{- end }}
+        </div>
+    </body>
+</html>

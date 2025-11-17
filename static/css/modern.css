@@ -1,0 +1,607 @@
+/* ============================================================================
+   Modern Accessible Theme
+   Based on original color scheme with modern CSS and accessibility features
+   ============================================================================ */
+
+/* ============================================================================
+   CSS Custom Properties (Design Tokens)
+   ============================================================================ */
+:root {
+  /* Colors - preserved from original */
+  --color-primary: #1c097d; /* Author name purple */
+  --color-accent: rgb(153, 27, 27); /* Links red */
+  --color-text-primary: rgb(24, 24, 27);
+  --color-text-secondary: rgb(82, 82, 91);
+  --color-text-muted: rgb(161, 161, 170);
+  --color-text-meta: rgb(113, 113, 122);
+  --color-social: #526d7a;
+  --color-heading-blue: #33a;
+  --color-heading-purple: rgb(51, 51, 119);
+  --color-job-title: rgb(58, 58, 206);
+  --color-job-meta: rgb(16, 16, 83);
+  --color-bg: #fcfcfc;
+  --color-bg-white: #ffffff;
+  --color-bg-highlight: rgba(28, 9, 125, 0.03);
+
+  /* Spacing */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.25rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 3.75rem;
+
+  /* Typography */
+  --font-primary: "Roboto Slab", "Roboto", "Lato", sans-serif;
+  --font-secondary: "Roboto", sans-serif;
+  --font-accent: "Lato", sans-serif;
+
+  /* Layout */
+  --container-max-width: 800px;
+  --border-radius: 0.5rem;
+
+  /* Transitions */
+  --transition-fast: 150ms ease-in-out;
+  --transition-normal: 250ms ease-in-out;
+}
+
+/* ============================================================================
+   CSS Reset & Base Styles
+   ============================================================================ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-primary);
+  font-size: clamp(1rem, 0.95rem + 0.25vw, 1.25rem);
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--color-text-primary);
+  background-color: var(--color-bg);
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ============================================================================
+   Accessibility - Screen Reader Only
+   ============================================================================ */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* ============================================================================
+   Typography
+   ============================================================================ */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+  margin-bottom: var(--spacing-sm);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: clamp(2rem, 1.5rem + 2vw, 3rem);
+}
+
+h2 {
+  font-family: var(--font-accent), serif;
+  font-weight: bold;
+  color: var(--color-heading-blue);
+  font-size: clamp(1.5rem, 1.2rem + 1.5vw, 2.25rem);
+}
+
+h3 {
+  font-family: var(--font-accent), serif;
+  color: var(--color-heading-blue);
+  font-size: clamp(1.25rem, 1.1rem + 0.75vw, 1.75rem);
+}
+
+h4 {
+  text-decoration: underline;
+  font-family: "Roboto Slab", serif;
+  color: rgb(51, 51, 119);
+}
+
+h5 {
+  font-family: var(--font-secondary), serif;
+  color: rgb(58, 58, 206);
+}
+
+h6 {
+  font-family: var(--font-secondary), serif;
+  color: rgb(16, 16, 83);
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: var(--spacing-sm);
+}
+
+/* ============================================================================
+   Links
+   ============================================================================ */
+a {
+  color: var(--color-text-primary);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover,
+a:focus {
+  color: var(--color-accent);
+  outline: none;
+}
+
+a:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+.content a {
+  color: var(--color-accent);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+
+.content a:hover,
+.content a:focus {
+  text-decoration-thickness: 2px;
+}
+
+/* ============================================================================
+   Layout
+   ============================================================================ */
+.container {
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+  flex: 1;
+}
+
+/* ============================================================================
+   Header
+   ============================================================================ */
+.header {
+  text-align: center;
+  margin-top: var(--spacing-xl);
+  margin-bottom: var(--spacing-md);
+}
+
+.headshot {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto var(--spacing-md);
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  transition:
+    transform var(--transition-normal),
+    box-shadow var(--transition-normal);
+}
+
+.headshot:hover {
+  transform: scale(1.05);
+  box-shadow:
+    0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.author {
+  color: var(--color-primary);
+  font-family: "Roboto Slab", serif;
+  margin: 0;
+}
+
+/* ============================================================================
+   Info Section
+   ============================================================================ */
+.info {
+  text-align: center;
+  margin-top: var(--spacing-sm);
+  margin-bottom: var(--spacing-md);
+}
+
+.description {
+  font-family: var(--font-secondary);
+  font-weight: 200;
+  color: var(--color-text-muted);
+  font-size: clamp(0.9rem, 0.85rem + 0.25vw, 1rem);
+  line-height: 1.3;
+}
+
+.description p {
+  margin-bottom: 0.25rem;
+}
+
+/* ============================================================================
+   Social Links
+   ============================================================================ */
+.social {
+  text-align: center;
+  margin: var(--spacing-md) 0;
+}
+
+.social nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+}
+
+.social a {
+  color: var(--color-social);
+  font-size: 1.5rem;
+  transition:
+    color var(--transition-fast),
+    transform var(--transition-fast);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+}
+
+.social a:hover,
+.social a:focus {
+  color: var(--color-accent);
+  transform: translateY(-2px);
+}
+
+/* Custom SVG icons styled to match FontAwesome */
+.svg-icon {
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  fill: currentColor;
+  vertical-align: -0.125em;
+  font-size: inherit;
+}
+
+.social a .svg-icon {
+  font-size: 1.5rem;
+}
+
+/* ============================================================================
+   Navigation
+   ============================================================================ */
+.main-menu {
+  text-align: center;
+  margin-top: var(--spacing-sm);
+  margin-bottom: var(--spacing-md);
+}
+
+.main-menu nav {
+  display: inline;
+  text-align: center;
+}
+
+.menu-item {
+  font-family: var(--font-accent);
+  font-size: 1.25rem;
+  font-weight: 300;
+  color: var(--color-accent);
+  padding: 0;
+  transition: color var(--transition-fast);
+}
+
+.menu-item:hover,
+.menu-item:focus {
+  color: var(--color-primary);
+}
+
+.menu-item::before {
+  content: " | ";
+  color: var(--color-text-muted);
+  margin: 0 0.5rem;
+}
+
+.menu-item::after {
+  content: " | ";
+  color: var(--color-text-muted);
+  margin: 0 0.5rem;
+}
+
+/* ============================================================================
+   Resume Page
+   ============================================================================ */
+.resume {
+  margin-top: var(--spacing-lg);
+  margin-bottom: var(--spacing-lg);
+  font-size: 1rem;
+}
+
+.resume header {
+  text-align: center;
+  border-bottom: 2px solid var(--color-primary);
+  padding-bottom: var(--spacing-md);
+  margin-bottom: var(--spacing-lg);
+}
+
+.resume header h1 {
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-sm);
+}
+
+.resume header address {
+  font-size: 0.95rem;
+  color: var(--color-text-secondary);
+  line-height: 1.8;
+  margin-bottom: var(--spacing-sm);
+}
+
+.resume header p {
+  font-size: 0.85rem;
+  color: var(--color-text-meta);
+  line-height: 1.8;
+}
+
+.resume section {
+  margin-bottom: var(--spacing-xl);
+}
+
+.resume section > h2 {
+  color: var(--color-heading-blue);
+  font-weight: bold;
+  margin-bottom: var(--spacing-md);
+  padding-bottom: var(--spacing-xs);
+  border-bottom: 1px solid var(--color-text-muted);
+}
+
+/* Job Entries */
+.resume .job {
+  margin-bottom: var(--spacing-lg);
+  padding: var(--spacing-md);
+  background: var(--color-bg-highlight);
+  border-left: 3px solid var(--color-primary);
+  border-radius: 0 var(--border-radius) var(--border-radius) 0;
+}
+
+.resume .job:hover {
+  background: rgba(28, 9, 125, 0.05);
+  transition: background var(--transition-fast);
+}
+
+.job-header {
+  margin-bottom: var(--spacing-xs);
+}
+
+.job-title {
+  color: var(--color-job-title);
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin: 0 0 var(--spacing-xs) 0;
+  text-decoration: underline;
+  text-decoration-color: var(--color-job-title);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+
+.job-meta {
+  margin: 0 0 var(--spacing-xs) 0;
+}
+
+.job-date {
+  color: var(--color-job-meta);
+  font-size: 0.95rem;
+}
+
+.job-date em {
+  font-style: italic;
+}
+
+.job-company {
+  font-size: 1.05rem;
+  margin: 0 0 var(--spacing-xs) 0;
+}
+
+.job-company strong {
+  color: var(--color-text-primary);
+  font-weight: 700;
+}
+
+.job-company a {
+  color: var(--color-accent);
+}
+
+.job-location {
+  color: var(--color-text-secondary);
+  font-weight: 400;
+}
+
+.job-org {
+  color: var(--color-text-meta);
+  font-size: 0.9rem;
+  margin: 0 0 var(--spacing-sm) 0;
+}
+
+.job-org em {
+  font-style: italic;
+}
+
+.job-projects {
+  background: rgba(255, 255, 255, 0.6);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--border-radius);
+  margin: var(--spacing-sm) 0;
+  font-size: 0.95rem;
+}
+
+.job-projects strong {
+  color: var(--color-heading-purple);
+}
+
+.job-projects a {
+  color: var(--color-accent);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+
+.job-highlights {
+  padding-left: var(--spacing-md);
+  margin: var(--spacing-sm) 0 0 0;
+}
+
+.job-highlights li {
+  margin-bottom: var(--spacing-xs);
+  text-align: left;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+}
+
+/* Skills Section */
+.resume section:has(.skill-category) p {
+  margin-bottom: var(--spacing-md);
+}
+
+.resume section p strong {
+  color: var(--color-heading-purple);
+  font-size: 1.05rem;
+}
+
+/* Education Section */
+.resume section div:has(a) {
+  margin-bottom: var(--spacing-md);
+}
+
+.resume section div a {
+  color: var(--color-accent);
+  font-weight: 700;
+}
+
+/* ============================================================================
+   Footer
+   ============================================================================ */
+.footer {
+  text-align: center;
+  margin-top: var(--spacing-lg);
+  padding: var(--spacing-md) 0;
+  color: #8b8b8b;
+}
+
+.footer hr {
+  border: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  margin-bottom: var(--spacing-md);
+}
+
+.copyright {
+  font-family: var(--font-secondary);
+  font-size: 0.75rem;
+  font-weight: 200;
+  margin: 0;
+}
+
+/* ============================================================================
+   Code Blocks
+   ============================================================================ */
+pre {
+  overflow-x: auto;
+  padding: var(--spacing-sm);
+  background-color: #f5f5f5;
+  border-radius: var(--border-radius);
+  margin-bottom: var(--spacing-sm);
+}
+
+pre > code {
+  white-space: pre;
+  word-wrap: initial;
+  word-break: initial;
+}
+
+code {
+  font-family: "Courier New", monospace;
+  font-size: 0.9em;
+  background-color: #f5f5f5;
+  padding: 0.125rem 0.25rem;
+  border-radius: 3px;
+}
+
+pre code {
+  background-color: transparent;
+  padding: 0;
+}
+
+/* ============================================================================
+   Responsive Design
+   ============================================================================ */
+@media (max-width: 768px) {
+  .header {
+    margin-top: var(--spacing-lg);
+  }
+
+  .menu-item {
+    font-size: 1.1rem;
+  }
+
+  .social a {
+    font-size: 1.25rem;
+    width: 2rem;
+    height: 2rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ============================================================================
+   Print Styles
+   ============================================================================ */
+@media print {
+  .social,
+  .main-menu,
+  .footer {
+    display: none;
+  }
+
+  body {
+    font-size: 12pt;
+    color: #000;
+    background: #fff;
+  }
+
+  a {
+    text-decoration: underline;
+    color: #000;
+  }
+}

@@ -1,33 +1,30 @@
 baseURL: https://grahame.com/
 title: Grahame
-theme: hugo-goa
+languageCode: en-us
 
 disableKinds: [RSS, taxonomy]
-languageCode: en-us
-#googleAnalytics: UA-8100748-1
 
-taxonomies:
-  category: categories
-  tag: tags
+# Custom output formats for resume
+outputs:
+  home:
+    - HTML
+  page:
+    - HTML
+  section:
+    - HTML
+    - resumeHTML
+
+outputFormats:
+  resumeHTML:
+    name: Resume HTML
+    mediaType: text/html
+    baseName: grahame_murray_resume
+    isPlainText: false
+    permalinkable: true
+    notAlternative: false
 
 params:
   author: Grahame Murray
-  favicon: favicon.ico
-  bgImg: headshot2.jpg
-  authorimage: headshot2.jpg
-  copyright: "&copy; 2025 All rights reserved."
-  fadeIn: false
-  fadeInIndex: false
-
-  home:
-    introHeight: fullheight # Input either "medium" or "large" or "fullheight"
-    showLatest: true # Show latest blog post summary
-    showAllPosts: false # Set true to list all posts on home page, or set false to link to separate blog list page
-    allPostsArchiveFormat: true # show all posts in an archive format
-    numberOfProjectsToShow: 3 # Maximum number of projects to show on home page. Unset or comment out to show all projects
-    localTime: true # Show your current local time in contact section
-    timeZone: America/Los_Angeles # Your timezone as in the TZ* column of this list: https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
-    timeFormat: en-US # Language specific format to use
 
   description: |
 
@@ -57,72 +54,20 @@ params:
 
     Curious runner
 
-  githubUsername: gusnuf
-  accent: indigo
-  showBorder: true
-  backgroundColor: white
-  font: Raleway # should match the name on Google Fonts!
-  profilePic: headshot-square.jpg
-  visual:
-    image:
-      enable: true
-      file: headshot-square.jpg
-      position: center center
-
-  # twitter: grahame
-  # github: gusnuf
-  # linkedin: grahamemurray
-  # facebook: gusnuf
-  # email: jobs@grahame.com
-
   social:
     github: gusnuf
-    #twitter: gusnuf
-    #facebook: gusnuf
     linkedin: grahamemurray
     soundcloud: gusnuf
     bsky: grahame.com
     substack: grahamemurray
     email: jobs@grahame.com
 
-  extra:
-    copyright: "&copy; 2025 All rights reserved."
-    poweredby: false
-    highlightjs: true
-    socialmarkup: false
-    toc: false
-    displayrssicon: false
-
 menu:
   main:
     - url: /
       name: Home
       weight: 1
+
     - url: /resume/
       name: Resume
       weight: 2
-
-    # - identifier: twitter
-    #   pre: <i class='fab fa-twitter fa-lg' />
-    #   url: https://twitter.com/gusnuf
-    #   weight: 3
-
-  # icon:
-  #   - url: mailto:jobs@grahame.com
-  #     name: fas fa-envelope
-  #     weight: 1
-  #   - url: https://github.com/gusnuf/
-  #     name: fab fa-github
-  #     weight: 2
-  #   - url: https://www.linkedin.com/in/grahamemurray/
-  #     name: fab fa-linkedin
-  #     weight: 3
-  #   - url: https://facebook.com/gusnuf/
-  #     name: fab fa-facebook
-  #     weight: 4
-  #   - url: https://open.spotify.com/user/gusnuf
-  #     name: fab fa-spotify
-  #     weight: 5
-  #   - url: https://www.soundcloud.com/gusnuf/
-  #     name: fab fa-soundcloud
-  #     weight: 6

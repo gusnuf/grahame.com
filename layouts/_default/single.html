@@ -1,0 +1,96 @@
+{{ define "main" }}
+{{- $resume := .Site.Data.resume -}}
+{{- $online := $resume.xOnline -}}
+
+<article class="resume">
+  <header>
+    <h1>{{ $resume.basics.name }}</h1>
+    <p>
+      {{ $resume.basics.location.city }}, {{ $resume.basics.location.region }} {{ $resume.basics.location.postalCode }}<br>
+      {{ $resume.basics.phone }} | {{ $resume.basics.email }}<br>
+      <a href="{{ $resume.basics.url }}">{{ $resume.basics.url }}</a>
+    </p>
+    <p style="font-size: 0.9em;">
+      Last Updated: {{ $resume.meta.lastModified | time.Format "Monday, January 2, 2006" }}
+      <br>
+      Also available in:
+      {{- range $i, $format := $online.formats }}
+      {{ if $i }} | {{ end }}<a href="/resume/grahame_murray_resume.{{ $format.extension }}">{{ $format.name }}</a>
+      {{- end }}
+    </p>
+  </header>
+
+  <section>
+    <h2>Summary</h2>
+    <p>{{ $resume.basics.summary }}</p>
+  </section>
+
+  <section>
+    <h2>Highlights</h2>
+    <ul>
+      {{- range $resume.xHighlights }}
+      <li>{{ . }}</li>
+      {{- end }}
+    </ul>
+  </section>
+
+  <section>
+    <h2>Experience</h2>
+    {{- range $job := $resume.work }}
+    <div class="job" style="margin-bottom: 2em;">
+      <h3>{{ $job.position }}</h3>
+      <p><strong>
+        {{ if $job.url }}<a href="{{ $job.url }}">{{ $job.name }}</a>{{ else }}{{ $job.name }}{{ end }}
+      </strong> - {{ $job.location }}<br>
+      <em>{{ (time.AsTime (printf "%s-01" $job.startDate)).Format "January 2006" }} - {{ if $job.endDate }}{{ (time.AsTime (printf "%s-01" $job.endDate)).Format "January 2006" }}{{ else }}Present{{ end }}</em>
+      {{- if or $job.xOrganization.division $job.xOrganization.department $job.xOrganization.team }}
+      <br>
+      <small>{{ if $job.xOrganization.division }}{{ $job.xOrganization.division }}{{ end }}{{ if and $job.xOrganization.division $job.xOrganization.department }}, {{ end }}{{ if $job.xOrganization.department }}{{ $job.xOrganization.department }}{{ end }}{{ if and (or $job.xOrganization.division $job.xOrganization.department) $job.xOrganization.team }}, {{ end }}{{ if $job.xOrganization.team }}{{ $job.xOrganization.team }}{{ end }}</small>
+      {{- end }}
+      </p>
+
+      {{- if $job.xProjects }}
+      <p><strong>Projects:</strong>
+      {{- range $i, $project := $job.xProjects }}
+        {{ if $i }}, {{ end }}{{ if $project.url }}<a href="{{ $project.url }}">{{ $project.name }}</a>{{ else }}{{ $project.name }}{{ end }}
+      {{- end }}
+      </p>
+      {{- end }}
+
+      <ul>
+        {{- range $job.highlights }}
+        <li>{{ . }}</li>
+        {{- end }}
+      </ul>
+    </div>
+    {{- end }}
+  </section>
+
+  <section>
+    <h2>Computer Skills</h2>
+    {{- range $skill := $resume.skills }}
+    <p><strong>{{ $skill.name }}:</strong> {{ delimit $skill.keywords ", " }}</p>
+    {{- end }}
+  </section>
+
+  <section>
+    <h2>Education</h2>
+    {{- range $edu := $resume.education }}
+    <div style="margin-bottom: 1em;">
+      <p><strong><a href="{{ $edu.url }}">{{ $edu.institution }}</a></strong> - {{ $edu.xLocation }}<br>
+      {{ if $edu.studyType }}{{ $edu.studyType }}{{ if $edu.area }} in {{ $edu.area }}{{ end }}<br>{{ end }}
+      {{ if $edu.courses }}<small>Courses in {{ delimit $edu.courses ", " }}</small>{{ end }}
+      </p>
+    </div>
+    {{- end }}
+  </section>
+
+  <section>
+    <h2>References</h2>
+    {{- range $resume.references }}
+    <p>{{ .name }}</p>
+    {{- end }}
+  </section>
+</article>
+
+{{ end }}
