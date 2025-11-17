@@ -1,0 +1,94 @@
+{{ define "main" }}
+{{- $author := .Site.Params.author -}}
+{{- $description := .Site.Params.description -}}
+{{- $social := .Site.Params.social -}}
+{{- $profilePic := .Site.Params.profilePic -}}
+
+{{ if .Site.Menus.main }}
+<nav class="main-menu nav-underline" aria-label="Main navigation">
+    {{ range .Site.Menus.main }}
+    <a href="{{ .URL }}" class="menu-item">{{ .Name }}</a>
+    {{ end }}
+</nav>
+{{ end }}
+
+<header class="header" role="banner">
+    <img src="{{ "images/headshot2.jpg" | relURL }}"
+         alt="Photo of {{ $author }}"
+         class="headshot"
+         width="180"
+         height="180">
+    <h1 class="author">{{ $author }}</h1>
+</header>
+
+<main id="main-content" role="main">
+    {{ if $description }}
+    <section class="info" aria-label="About">
+        <div class="description">
+            {{ $description | replaceRE "\n\n" "<br><br>" | safeHTML }}
+        </div>
+    </section>
+    {{ end }}
+
+    {{ if $social }}
+    <section class="social" aria-label="Social links">
+        <nav>
+            {{ with $social.github }}
+            <a href="https://github.com/{{ . }}"
+               aria-label="Visit my GitHub profile"
+               target="_blank"
+               rel="noopener noreferrer">
+                <i class="fab fa-github" aria-hidden="true"></i>
+                <span class="sr-only">GitHub</span>
+            </a>
+            {{ end }}
+            {{ with $social.linkedin }}
+            <a href="https://linkedin.com/in/{{ . }}"
+               aria-label="Visit my LinkedIn profile"
+               target="_blank"
+               rel="noopener noreferrer">
+                <i class="fab fa-linkedin" aria-hidden="true"></i>
+                <span class="sr-only">LinkedIn</span>
+            </a>
+            {{ end }}
+            {{ with $social.soundcloud }}
+            <a href="https://soundcloud.com/{{ . }}"
+               aria-label="Visit my Soundcloud profile"
+               target="_blank"
+               rel="noopener noreferrer">
+                <i class="fab fa-soundcloud" aria-hidden="true"></i>
+                <span class="sr-only">Soundcloud</span>
+            </a>
+            {{ end }}
+            {{ with $social.bsky }}
+            <a href="https://bsky.app/profile/{{ . }}"
+               aria-label="Visit my Bluesky profile"
+               target="_blank"
+               rel="noopener noreferrer">
+                <i class="fa-brands fa-bluesky" aria-hidden="true"></i>
+                <span class="sr-only">Bluesky</span>
+            </a>
+            {{ end }}
+            {{ with $social.substack }}
+            <a href="https://substack.com/@{{ . }}"
+               aria-label="Visit my Substack"
+               target="_blank"
+               rel="noopener noreferrer">
+                <svg class="svg-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/>
+                </svg>
+                <span class="sr-only">Substack</span>
+            </a>
+            {{ end }}
+            {{ with $social.email }}
+            <a href="mailto:{{ . }}"
+               aria-label="Send me an email">
+                <i class="fas fa-envelope" aria-hidden="true"></i>
+                <span class="sr-only">Email</span>
+            </a>
+            {{ end }}
+        </nav>
+    </section>
+    {{ end }}
+</main>
+{{ end }}
