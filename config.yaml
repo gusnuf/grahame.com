@@ -26,35 +26,6 @@ outputFormats:
 
 params:
   author: Grahame Murray
-
-  description: |
-
-    Raleighite husband
-
-    Agnostic father
-
-    Distinguished engineer
-
-    Cat owning dog lover
-
-    Pescatarian traveler
-
-    Anglophile liberal
-
-    Musical motorcyclist
-
-    Sarcastic brewer
-
-    Francophone roboticist
-
-    Outdoorsy polymath
-
-    Delawarean ISFJ
-
-    Goofy night owl
-
-    Curious runner
-
   social:
     github: gusnuf
     linkedin: grahamemurray
