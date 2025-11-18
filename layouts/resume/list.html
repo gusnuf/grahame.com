@@ -49,6 +49,17 @@
     <h2>Experience</h2>
     {{- range $job := $resume.work }}
     <div class="job">
+      {{- if $job.xProjects }}
+      <div class="job-projects">
+        <strong>PROJECTS</strong>
+        <div class="job-projects-list">
+          {{- range $project := $job.xProjects }}
+          <div>+ {{ if $project.url }}<a href="{{ $project.url }}" target="_blank" rel="noopener noreferrer">{{ $project.name }}</a>{{ else }}{{ $project.name }}{{ end }}</div>
+          {{- end }}
+        </div>
+      </div>
+      {{- end }}
+
       <div class="job-header">
         <h3 class="job-title">{{ $job.position }}</h3>
         <p class="job-meta">
@@ -56,25 +67,16 @@
             <em>{{ (time.AsTime (printf "%s-01" $job.startDate)).Format "January 2006" }} - {{ if $job.endDate }}{{ (time.AsTime (printf "%s-01" $job.endDate)).Format "January 2006" }}{{ else }}Present{{ end }}</em>
           </span>
         </p>
-      </div>
-      <p class="job-company">
-        <strong>{{ if $job.url }}<a href="{{ $job.url }}" target="_blank" rel="noopener noreferrer">{{ $job.name }}</a>{{ else }}{{ $job.name }}{{ end }}</strong>
-        <span class="job-location"> — {{ $job.location }}</span>
-      </p>
-      {{- if or $job.xOrganization.division $job.xOrganization.department $job.xOrganization.team }}
-      <p class="job-org">
-        <em>{{ if $job.xOrganization.division }}{{ $job.xOrganization.division }}{{ end }}{{ if and $job.xOrganization.division $job.xOrganization.department }}, {{ end }}{{ if $job.xOrganization.department }}{{ $job.xOrganization.department }}{{ end }}{{ if and (or $job.xOrganization.division $job.xOrganization.department) $job.xOrganization.team }}, {{ end }}{{ if $job.xOrganization.team }}{{ $job.xOrganization.team }}{{ end }}</em>
-      </p>
-      {{- end }}
-
-      {{- if $job.xProjects }}
-      <div class="job-projects">
-        <strong>Projects:</strong>
-        {{- range $i, $project := $job.xProjects }}
-          {{ if $i }}, {{ end }}{{ if $project.url }}<a href="{{ $project.url }}" target="_blank" rel="noopener noreferrer">{{ $project.name }}</a>{{ else }}{{ $project.name }}{{ end }}
+        <p class="job-company">
+          <strong>{{ if $job.url }}<a href="{{ $job.url }}" target="_blank" rel="noopener noreferrer">{{ $job.name }}</a>{{ else }}{{ $job.name }}{{ end }}</strong>
+          <span class="job-location"> — {{ $job.location }}</span>
+        </p>
+        {{- if or $job.xOrganization.division $job.xOrganization.department $job.xOrganization.team }}
+        <p class="job-org">
+          <em>{{ if $job.xOrganization.division }}{{ $job.xOrganization.division }}{{ end }}{{ if and $job.xOrganization.division $job.xOrganization.department }}, {{ end }}{{ if $job.xOrganization.department }}{{ $job.xOrganization.department }}{{ end }}{{ if and (or $job.xOrganization.division $job.xOrganization.department) $job.xOrganization.team }}, {{ end }}{{ if $job.xOrganization.team }}{{ $job.xOrganization.team }}{{ end }}</em>
+        </p>
         {{- end }}
       </div>
-      {{- end }}
 
       <ul class="job-highlights">
         {{- range $job.highlights }}

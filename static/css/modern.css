@@ -610,18 +610,23 @@ a:focus-visible {
 .resume .job {
   margin-bottom: var(--spacing-lg);
   padding: var(--spacing-md);
-  background: var(--color-bg-highlight);
+  background: #ffffff;
   border-left: 3px solid var(--color-primary);
   border-radius: 0 var(--border-radius) var(--border-radius) 0;
+  overflow: auto;
 }
 
 .resume .job:hover {
-  background: rgba(28, 9, 125, 0.05);
+  background: #fafafa;
   transition: background var(--transition-fast);
 }
 
 .job-header {
   margin-bottom: var(--spacing-xs);
+}
+
+.job-main-content {
+  display: block;
 }
 
 .job-title {
@@ -678,15 +683,54 @@ a:focus-visible {
 }
 
 .job-projects {
-  background: rgba(255, 255, 255, 0.6);
-  padding: var(--spacing-xs) var(--spacing-sm);
+  background: #d4d4c4;
+  padding: var(--spacing-sm);
   border-radius: var(--border-radius);
-  margin: var(--spacing-sm) 0;
-  font-size: 0.95rem;
+  margin: 0 0 var(--spacing-sm) var(--spacing-md);
+  font-size: 0.75rem;
+  font-family: var(--font-secondary);
+  width: 280px;
+  float: right;
+  order: 2;
+}
+
+/* Float on wide screens */
+@media (min-width: 900px) {
+  .job-projects {
+    float: right;
+    margin: 0 0 var(--spacing-sm) var(--spacing-md);
+  }
+}
+
+/* Position between header and highlights on medium screens */
+@media (max-width: 899px) {
+  .resume .job {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .job-header {
+    order: 1;
+  }
+
+  .job-projects {
+    order: 2;
+    float: none;
+    width: 100%;
+    margin: var(--spacing-sm) 0;
+  }
+
+  .job-highlights {
+    order: 3;
+  }
 }
 
 .job-projects strong {
-  color: var(--color-heading-purple);
+  font-weight: bold;
+  text-decoration: underline;
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--color-text-primary);
 }
 
 .job-projects a {
@@ -694,6 +738,17 @@ a:focus-visible {
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 2px;
+}
+
+.job-projects-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  line-height: 1.5;
+}
+
+.job-projects-list div {
+  text-indent: 0;
 }
 
 .job-highlights {
