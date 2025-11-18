@@ -38,7 +38,7 @@
 
   <section>
     <h2>Highlights</h2>
-    <ul>
+    <ul class="resume-highlights">
       {{- range $resume.xHighlights }}
       <li>{{ . }}</li>
       {{- end }}
@@ -54,7 +54,7 @@
         <strong>PROJECTS</strong>
         <div class="job-projects-list">
           {{- range $project := $job.xProjects }}
-          <div>+ {{ if $project.url }}<a href="{{ $project.url }}" target="_blank" rel="noopener noreferrer">{{ $project.name }}</a>{{ else }}{{ $project.name }}{{ end }}</div>
+          <div>{{ if $project.url }}<a href="{{ $project.url }}" target="_blank" rel="noopener noreferrer">{{ $project.name }}</a>{{ else }}{{ $project.name }}{{ end }}</div>
           {{- end }}
         </div>
       </div>

@@ -74,6 +74,8 @@
         "carousel-far-above",
         "carousel-far-below",
         "carousel-hidden",
+        "carousel-entering",
+        "carousel-exiting",
       );
 
       const distance = (i - adjectiveIndex + adjectives.length) % adjectives.length;
@@ -88,6 +90,12 @@
         item.classList.add("carousel-below");
       } else if (distance === 2) {
         item.classList.add("carousel-far-below");
+      } else if (distance === 3) {
+        // Next to enter from below
+        item.classList.add("carousel-entering");
+      } else if (distance === adjectives.length - 3) {
+        // Just left from above
+        item.classList.add("carousel-exiting");
       } else {
         item.classList.add("carousel-hidden");
       }
@@ -102,6 +110,8 @@
         "carousel-far-above",
         "carousel-far-below",
         "carousel-hidden",
+        "carousel-entering",
+        "carousel-exiting",
       );
 
       const distance = (i - nounIndex + nouns.length) % nouns.length;
@@ -116,6 +126,12 @@
         item.classList.add("carousel-below");
       } else if (distance === 2) {
         item.classList.add("carousel-far-below");
+      } else if (distance === 3) {
+        // Next to enter from below
+        item.classList.add("carousel-entering");
+      } else if (distance === nouns.length - 3) {
+        // Just left from above
+        item.classList.add("carousel-exiting");
       } else {
         item.classList.add("carousel-hidden");
       }
@@ -123,13 +139,13 @@
   }
 
   function advance() {
-    // Nouns scroll up (decrement to move upward visually)
-    nounIndex = (nounIndex - 1 + nouns.length) % nouns.length;
+    // Nouns scroll up (increment to move upward visually)
+    nounIndex = (nounIndex + 1) % nouns.length;
     nounAdvanceCount++;
 
     // Adjectives advance every 4 noun advances
     if (nounAdvanceCount % 4 === 0) {
-      adjectiveIndex = (adjectiveIndex - 1 + adjectives.length) % adjectives.length;
+      adjectiveIndex = (adjectiveIndex + 1) % adjectives.length;
     }
 
     updateCarousel();
@@ -145,7 +161,7 @@
   if (adjectivesColumn) {
     adjectivesColumn.style.cursor = "pointer";
     adjectivesColumn.addEventListener("click", () => {
-      adjectiveIndex = (adjectiveIndex - 1 + adjectives.length) % adjectives.length;
+      adjectiveIndex = (adjectiveIndex + 1) % adjectives.length;
       updateCarousel();
     });
   }
@@ -153,7 +169,7 @@
   if (nounsColumn) {
     nounsColumn.style.cursor = "pointer";
     nounsColumn.addEventListener("click", () => {
-      nounIndex = (nounIndex - 1 + nouns.length) % nouns.length;
+      nounIndex = (nounIndex + 1) % nouns.length;
       updateCarousel();
     });
   }

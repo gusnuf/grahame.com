@@ -1,112 +1,268 @@
-{{ $resume := .Site.Data.resume }}{{ $online := $resume.xOnline }}<html>
-    <head>
-        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Resume of {{ $resume.basics.name }}</title>
-    </head>
-    <body>
-        <div id="centercontent">
-            <span style="font-size:25px; font-weight:bold">{{ $resume.basics.name }}</span>
-            <br>
-            {{ $resume.basics.location.city }}, {{ $resume.basics.location.region }}
-{{ $resume.basics.location.postalCode }}
-            <br>
-            <table cellpadding="0" cellspacing="0">
-                <tr>
-                    <th align="right">Home:&nbsp;</th><td>{{ $resume.basics.phone }}</td><td width="15"></td>
-                </tr>
-                <tr>
-                    <th align="right">Email:&nbsp;</th><td>{{ $resume.basics.email }}</td><td width="15"></td><th align="right">Web:&nbsp;</th><td><a href="{{ $resume.basics.url }}">{{ $resume.basics.url }}</a></td>
-                </tr>
-            </table>
-            <hr>
-            <span id="updated" style="font-size:8pt">Last Updated: {{ now.Format "Monday, January 2, 2006" }}.</span>
-            <br>
-            <span id="online" style="font-size=8pt">
-    	Visit <a href="{{ $online.base }}">{{ $online.base }}</a> for the most current version, available in{{- " " -}}
-    	{{- range $i, $format := $online.formats -}}
-    	{{- if $i }}, {{ end -}}
-    	<a href="{{ $online.base }}/grahame_murray_resume.{{ $format.extension }}">{{ $format.name }}</a>
-    	{{- end -}}{{- " " -}}versions, or
-    	<a href="{{ $online.source }}">{{ $online.source }}</a> to see the code that created this resume.
-	</span>
-            <p></p>
-            <span class="header" style="font-weight:bold">SUMMARY</span>
-            <br>
-            {{ $resume.basics.summary }}
-            <p></p>
-            <span class="header" style="font-weight:bold">HIGHLIGHTS</span>
-            <br>
-            <ul>
-                {{- range $resume.xHighlights }}
-                <li>{{ . }}</li>
-                {{- end }}
-            </ul>
-            <p></p>
-            <span class="header" style="font-weight:bold">EXPERIENCE</span>
-            <br>
-            <table cellpadding="7" cellspacing="0">
-                {{- range $job := $resume.work }}
-                <tr>
-                    <td><b>{{ $job.position }}</b>,
-	        {{ (time.AsTime (printf "%s-01" $job.startDate)).Format "January 2006" }} - {{ if $job.endDate }}{{ (time.AsTime (printf "%s-01" $job.endDate)).Format "January 2006" }}{{ else }}Present{{ end }}
-                        <br>
-                        <em>
-                        {{- if $job.xOrganization.division }}{{ $job.xOrganization.division }}{{ end -}}
-                        {{- if and $job.xOrganization.division $job.xOrganization.department }}, {{ end -}}
-                        {{- if $job.xOrganization.department }}{{ $job.xOrganization.department }}{{ end -}}
-                        {{- if and (or $job.xOrganization.division $job.xOrganization.department) $job.xOrganization.team }}, {{ end -}}
-                        {{- if $job.xOrganization.team }}{{ $job.xOrganization.team }}{{ end -}}
-                        </em></td><td>{{ if $job.url }}<a href="{{ $job.url }}">{{ $job.name }}</a>{{ else }}{{ $job.name }}{{ end }}</td><td>{{ $job.location }}</td>
-                </tr>
-                <tr>
-                    <td colspan="2" rowspan="2" valign="top">
-                        <ul>
-                            {{- range $job.highlights }}
-                            <li>{{ . }}</li>
-                            {{- end }}
-                        </ul>
-                    </td><td width="25%" height="10%" bgcolor="#d4d4c4" valign="top" style="font-size:12px; font-family:helvetica"><span style="font-weight:bold; text-decoration:underline">PROJECTS</span>:
-                        <br>
-                        {{- range $job.xProjects }}
-                        + {{ if .url }}<a href="{{ .url }}">{{ .name }}</a>{{ else }}{{ .name }}{{ end }}
-                        <br>
-                        {{- end }}
-                    </td><td></td>
-                </tr>
-                <tr>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td colspan="3" height="1"></td>
-                </tr>
-                {{- end }}
-            </table>
-            <p></p>
-            <p></p>
-            <span class="header" style="font-weight:bold">COMPUTER SKILLS</span>
-            <br>
-            {{- range $skill := $resume.skills }}
-            <b>{{ $skill.name }}</b>:
-            <br>
-            {{ delimit $skill.keywords ", " }}
-            <p></p>
-            {{- end }}
-            <span class="header" style="font-weight:bold">EDUCATION</span>
-            <br>
-            {{- range $edu := $resume.education }}
-            <a href="{{ $edu.url }}">{{ $edu.institution }}</a> {{ $edu.xLocation }}
-            <br>
-            {{ if $edu.studyType }}{{ $edu.studyType }}{{ if $edu.area }} in {{ $edu.area }}{{ end }}{{ end }}
-            <br>
-            {{ if $edu.courses }}Courses in {{ delimit $edu.courses ", " }}{{ end }}
-            <p></p>
-            {{- end }}
-            <p></p>
-            <span class="header" style="font-weight:bold">REFERENCES</span>
-            <br>
-            {{- range $resume.references }}
-            {{ .name }}
-            {{- end }}
+{{ $resume := .Site.Data.resume }}{{ $online := $resume.xOnline }}
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Resume of {{ $resume.basics.name }}</title>
+    <style>
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        color: #333;
+        line-height: 1.6;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 2rem;
+      }
+
+      #centercontent {
+        background: #fff;
+      }
+
+      h1 {
+        color: #1c097d;
+        font-size: 2rem;
+        font-weight: 700;
+        margin: 0 0 0.25rem 0;
+      }
+
+      h2 {
+        color: #1c097d;
+        font-size: 1.3rem;
+        font-weight: 700;
+        margin-top: 1.5rem;
+        margin-bottom: 0.5rem;
+        padding-bottom: 0.25rem;
+        border-bottom: 1px solid #ddd;
+      }
+
+      h2:first-of-type {
+        margin-top: 0.5rem;
+      }
+
+      h3 {
+        color: #1c097d;
+        font-size: 1rem;
+        font-weight: 600;
+        margin: 0 0 0.25rem 0;
+      }
+
+      a {
+        color: #991b1b;
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      hr {
+        border: 0;
+        border-top: 2px solid #1c097d;
+        margin: 0.5rem 0;
+      }
+
+      p {
+        margin: 0.5rem 0;
+      }
+
+      .location {
+        margin: 0 0 0.5rem 0;
+        color: #666;
+      }
+
+      .contact-info {
+        margin: 0.25rem 0 0.5rem 0;
+      }
+
+      .meta-info {
+        font-size: 0.8rem;
+        color: #666;
+        margin: 0.5rem 0 1rem 0;
+      }
+
+      table {
+        margin: 0.5rem 0;
+      }
+
+      th {
+        color: #666;
+        font-weight: 500;
+        font-size: 0.9rem;
+      }
+
+      td {
+        padding: 0.25rem 0.5rem 0.25rem 0;
+        vertical-align: top;
+      }
+
+      b {
+        font-weight: 600;
+        color: #1c097d;
+      }
+
+      em {
+        color: #666;
+      }
+
+      ul {
+        padding-left: 0;
+        list-style: none;
+        margin: 0.5rem 0;
+      }
+
+      li {
+        padding-left: 1.5rem;
+        position: relative;
+        margin-bottom: 0.5rem;
+        line-height: 1.6;
+      }
+
+      li::before {
+        content: "■";
+        position: absolute;
+        left: 0.4rem;
+        color: #1c097d;
+        font-weight: 600;
+        font-size: 0.4em;
+        top: 1em;
+      }
+
+      .projects-cell {
+        background: #d4d4c4;
+        padding: 0.75rem;
+        border-radius: 4px;
+        font-size: 0.85rem;
+      }
+
+      .projects-header {
+        font-weight: 600;
+        text-decoration: underline;
+        display: block;
+        margin-bottom: 0.5rem;
+      }
+
+      .project-item {
+        margin-top: 0.25rem;
+        padding-left: 1rem;
+        position: relative;
+      }
+
+      .project-item::before {
+        content: "▸";
+        position: absolute;
+        left: 0;
+        color: #1c097d;
+        font-weight: 600;
+      }
+
+      .skill-item {
+        margin-bottom: 0.75rem;
+      }
+
+      .education-item {
+        margin-bottom: 0.75rem;
+      }
+
+      .education-courses {
+        font-size: 0.9rem;
+        color: #666;
+      }
+
+      .job-entry {
+        margin-bottom: 1.5rem;
+        overflow: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="centercontent">
+      <h1>{{ $resume.basics.name }}</h1>
+      <p class="location">
+        {{ $resume.basics.location.city }}, {{ $resume.basics.location.region }} {{ $resume.basics.location.postalCode }}
+      </p>
+      <table class="contact-info" cellpadding="0" cellspacing="0">
+        <tr>
+          <th align="right">Home:&nbsp;</th>
+          <td>{{ $resume.basics.phone }}</td>
+          <td width="15"></td>
+        </tr>
+        <tr>
+          <th align="right">Email:&nbsp;</th>
+          <td>{{ $resume.basics.email }}</td>
+          <td width="15"></td>
+          <th align="right">Web:&nbsp;</th>
+          <td><a href="{{ $resume.basics.url }}">{{ $resume.basics.url }}</a></td>
+        </tr>
+      </table>
+      <hr />
+      <p class="meta-info">
+        Last Updated: {{ now.Format "Monday, January 2, 2006" -}}. Also available in:{{- " " -}} {{- range $i, $format := $online.formats }}
+        {{ if $i }} | {{ end }}<a href="{{ $online.base }}/grahame_murray_resume.{{ $format.extension }}">{{ $format.name }}</a> {{- end -}}
+        {{- " " -}}| <a href="{{ $online.source }}">Source code</a>
+      </p>
+
+      <h2>SUMMARY</h2>
+      <p>{{ $resume.basics.summary }}</p>
+
+      <h2>HIGHLIGHTS</h2>
+      <ul>
+        {{- range $resume.xHighlights }}
+        <li>{{ . }}</li>
+        {{- end }}
+      </ul>
+
+      <h2>EXPERIENCE</h2>
+      {{- range $job := $resume.work }}
+      <div class="job-entry">
+        {{- if $job.xProjects }}
+        <div class="projects-cell" style="float: right; width: 30%; margin-left: 1rem">
+          <span class="projects-header">PROJECTS</span>
+          {{- range $job.xProjects }}
+          <div class="project-item">{{ if .url }}<a href="{{ .url }}">{{ .name }}</a>{{ else }}{{ .name }}{{ end }}</div>
+          {{- end }}
         </div>
-    </body>
+        {{- end }}
+        <div>
+          <h3>{{ $job.position }}</h3>
+          <em
+            >{{ (time.AsTime (printf "%s-01" $job.startDate)).Format "January 2006" }} - {{ if $job.endDate }}{{ (time.AsTime (printf
+            "%s-01" $job.endDate)).Format "January 2006" }}{{ else }}Present{{ end }}</em
+          ><br />
+          <strong>{{ if $job.url }}<a href="{{ $job.url }}">{{ $job.name }}</a>{{ else }}{{ $job.name }}{{ end }}</strong> — {{
+          $job.location }} {{- if or $job.xOrganization.division $job.xOrganization.department $job.xOrganization.team }}<br />
+          <em>
+            {{- if $job.xOrganization.division }}{{ $job.xOrganization.division }}{{ end -}} {{- if and $job.xOrganization.division
+            $job.xOrganization.department }}, {{ end -}} {{- if $job.xOrganization.department }}{{ $job.xOrganization.department }}{{ end
+            -}} {{- if and (or $job.xOrganization.division $job.xOrganization.department) $job.xOrganization.team }}, {{ end -}} {{- if
+            $job.xOrganization.team }}{{ $job.xOrganization.team }}{{ end -}}
+          </em>
+          {{- end }}
+          <ul>
+            {{- range $job.highlights }}
+            <li>{{ . }}</li>
+            {{- end }}
+          </ul>
+        </div>
+      </div>
+      {{- end }}
+
+      <h2>COMPUTER SKILLS</h2>
+      {{- range $skill := $resume.skills }}
+      <p class="skill-item"><b>{{ $skill.name }}</b>: {{ delimit $skill.keywords ", " }}</p>
+      {{- end }}
+
+      <h2>EDUCATION</h2>
+      {{- range $edu := $resume.education }}
+      <p class="education-item">
+        <b><a href="{{ $edu.url }}">{{ $edu.institution }}</a></b> — {{ $edu.xLocation }}<br />
+        {{ if $edu.studyType }}{{ $edu.studyType }}{{ if $edu.area }} in {{ $edu.area }}{{ end }}<br />{{ end }} {{ if $edu.courses }}<span
+          class="education-courses"
+          >Courses in {{ delimit $edu.courses ", " }}</span
+        >{{ end }}
+      </p>
+      {{- end }}
+
+      <h2>REFERENCES</h2>
+      <p>{{- range $resume.references }}{{ .name }}{{- end }}</p>
+    </div>
+  </body>
 </html>

@@ -352,8 +352,13 @@ a:focus-visible {
   transform: translate3d(-100%, calc(-50% + 65px), 0) scale(0.77);
 }
 
-#adjectives-track .carousel-item.carousel-hidden {
-  transform: translate3d(-100%, calc(-50% - 130px), 0) scale(0.64);
+#adjectives-track .carousel-item.carousel-hidden,
+#adjectives-track .carousel-item.carousel-entering {
+  transform: translate3d(-100%, calc(-50% + 95px), 0) scale(0.64);
+}
+
+#adjectives-track .carousel-item.carousel-exiting {
+  transform: translate3d(-100%, calc(-50% - 95px), 0) scale(0.64);
 }
 
 #nouns-track .carousel-item {
@@ -388,8 +393,13 @@ a:focus-visible {
   transform: translate3d(0%, calc(-50% + 65px), 0) scale(0.77);
 }
 
-#nouns-track .carousel-item.carousel-hidden {
-  transform: translate3d(0%, calc(-50% - 130px), 0) scale(0.64);
+#nouns-track .carousel-item.carousel-hidden,
+#nouns-track .carousel-item.carousel-entering {
+  transform: translate3d(0%, calc(-50% + 95px), 0) scale(0.64);
+}
+
+#nouns-track .carousel-item.carousel-exiting {
+  transform: translate3d(0%, calc(-50% - 95px), 0) scale(0.64);
 }
 
 /* Focus - largest, center */
@@ -765,11 +775,22 @@ a:focus-visible {
 
 .job-projects-list div {
   text-indent: 0;
+  padding-left: 1rem;
+  position: relative;
+}
+
+.job-projects-list div::before {
+  content: "▸";
+  position: absolute;
+  left: 0;
+  color: var(--color-primary);
+  font-weight: 600;
 }
 
 .job-highlights {
-  padding-left: var(--spacing-md);
+  padding-left: 0;
   margin: var(--spacing-sm) 0 0 0;
+  list-style: none;
 }
 
 .job-highlights li {
@@ -777,6 +798,41 @@ a:focus-visible {
   text-align: left;
   line-height: 1.6;
   color: var(--color-text-secondary);
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.job-highlights li::before {
+  content: "■";
+  position: absolute;
+  left: 0.4rem;
+  color: var(--color-primary);
+  font-weight: 600;
+  font-size: 0.6em;
+  top: 0.5em;
+}
+
+/* Highlights Section */
+.resume-highlights {
+  padding-left: 0;
+  list-style: none;
+}
+
+.resume-highlights li {
+  margin-bottom: var(--spacing-xs);
+  padding-left: 1.5rem;
+  position: relative;
+  line-height: 1.6;
+}
+
+.resume-highlights li::before {
+  content: "■";
+  position: absolute;
+  left: 0.4rem;
+  color: var(--color-primary);
+  font-weight: 600;
+  font-size: 0.6em;
+  top: 0.5em;
 }
 
 /* Skills Section */
