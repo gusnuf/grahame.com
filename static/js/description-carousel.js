@@ -123,13 +123,13 @@
   }
 
   function advance() {
-    // Nouns scroll up (advance every time)
-    nounIndex = (nounIndex + 1) % nouns.length;
+    // Nouns scroll up (decrement to move upward visually)
+    nounIndex = (nounIndex - 1 + nouns.length) % nouns.length;
     nounAdvanceCount++;
 
     // Adjectives advance every 4 noun advances
     if (nounAdvanceCount % 4 === 0) {
-      adjectiveIndex = (adjectiveIndex + 1) % adjectives.length;
+      adjectiveIndex = (adjectiveIndex - 1 + adjectives.length) % adjectives.length;
     }
 
     updateCarousel();
@@ -145,7 +145,7 @@
   if (adjectivesColumn) {
     adjectivesColumn.style.cursor = "pointer";
     adjectivesColumn.addEventListener("click", () => {
-      adjectiveIndex = (adjectiveIndex + 1) % adjectives.length;
+      adjectiveIndex = (adjectiveIndex - 1 + adjectives.length) % adjectives.length;
       updateCarousel();
     });
   }
@@ -153,7 +153,7 @@
   if (nounsColumn) {
     nounsColumn.style.cursor = "pointer";
     nounsColumn.addEventListener("click", () => {
-      nounIndex = (nounIndex + 1) % nouns.length;
+      nounIndex = (nounIndex - 1 + nouns.length) % nouns.length;
       updateCarousel();
     });
   }

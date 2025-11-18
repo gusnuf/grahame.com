@@ -1,6 +1,7 @@
 baseURL: https://grahame.com/
 title: Grahame
 languageCode: en-us
+timeZone: America/New_York
 
 disableKinds: [RSS, taxonomy]
 

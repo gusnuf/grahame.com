@@ -229,7 +229,7 @@ a:focus-visible {
 .info {
   text-align: center;
   margin-top: var(--spacing-sm);
-  margin-bottom: var(--spacing-md);
+  margin-bottom: var(--spacing-lg);
 }
 
 .description {
@@ -262,7 +262,7 @@ a:focus-visible {
 .description-carousel {
   justify-content: center;
   align-items: center;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .carousel-inner {
@@ -280,8 +280,16 @@ a:focus-visible {
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
-  min-width: 150px;
+  overflow: visible;
+  min-width: 100px;
+  flex: 1;
+}
+
+@media (min-width: 600px) {
+  .carousel-column {
+    min-width: 150px;
+    flex: 0 1 auto;
+  }
 }
 
 .carousel-track {
@@ -294,96 +302,100 @@ a:focus-visible {
   font-family: var(--font-secondary);
   font-weight: 300;
   color: var(--color-text-muted);
-  font-size: 0.9rem;
+  font-size: 1.2rem;
   opacity: 0;
   position: absolute;
   left: 50%;
   top: 50%;
   transition:
-    opacity 0.8s cubic-bezier(0.6, 0, 0.2, 1),
-    transform 0.8s cubic-bezier(0.6, 0, 0.2, 1),
-    font-size 0.8s cubic-bezier(0.6, 0, 0.2, 1);
+    opacity 0.3s ease-out,
+    transform 0.8s ease-out;
   white-space: nowrap;
   pointer-events: none;
-  will-change: transform, opacity;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 #adjectives-track .carousel-item {
   text-align: right;
   left: 100%;
-  transform: translate(-100%, -50%);
+  transform: translate3d(-100%, -50%, 0) scale(0.77);
+  transform-origin: right center;
 }
 
 #adjectives-track .carousel-item.carousel-focus {
   opacity: 1;
-  transform: translate(-100%, -50%);
+  transform: translate3d(-100%, -50%, 0) scale(1.36);
 }
 
 #adjectives-track .carousel-item.carousel-above {
   opacity: 0.5;
-  transform: translate(-100%, calc(-50% - 35px));
+  transform: translate3d(-100%, calc(-50% - 35px), 0) scale(1);
 }
 
 #adjectives-track .carousel-item.carousel-below {
   opacity: 0.5;
-  transform: translate(-100%, calc(-50% + 35px));
+  transform: translate3d(-100%, calc(-50% + 35px), 0) scale(1);
 }
 
 #adjectives-track .carousel-item.carousel-far-above {
   opacity: 0.25;
-  transform: translate(-100%, calc(-50% - 65px));
+  transform: translate3d(-100%, calc(-50% - 65px), 0) scale(0.77);
 }
 
 #adjectives-track .carousel-item.carousel-far-below {
   opacity: 0.25;
-  transform: translate(-100%, calc(-50% + 65px));
+  transform: translate3d(-100%, calc(-50% + 65px), 0) scale(0.77);
 }
 
 #adjectives-track .carousel-item.carousel-hidden {
-  transform: translate(-100%, -50%);
+  transform: translate3d(-100%, calc(-50% - 130px), 0) scale(0.64);
 }
 
 #nouns-track .carousel-item {
   text-align: left;
   left: 0%;
-  transform: translate(0%, -50%);
+  transform: translate3d(0%, -50%, 0) scale(0.77);
+  transform-origin: left center;
 }
 
 #nouns-track .carousel-item.carousel-focus {
   opacity: 1;
-  transform: translate(0%, -50%);
+  transform: translate3d(0%, -50%, 0) scale(1.36);
 }
 
 #nouns-track .carousel-item.carousel-above {
   opacity: 0.5;
-  transform: translate(0%, calc(-50% - 35px));
+  transform: translate3d(0%, calc(-50% - 35px), 0) scale(1);
 }
 
 #nouns-track .carousel-item.carousel-below {
   opacity: 0.5;
-  transform: translate(0%, calc(-50% + 35px));
+  transform: translate3d(0%, calc(-50% + 35px), 0) scale(1);
 }
 
 #nouns-track .carousel-item.carousel-far-above {
   opacity: 0.25;
-  transform: translate(0%, calc(-50% - 65px));
+  transform: translate3d(0%, calc(-50% - 65px), 0) scale(0.77);
 }
 
 #nouns-track .carousel-item.carousel-far-below {
   opacity: 0.25;
-  transform: translate(0%, calc(-50% + 65px));
+  transform: translate3d(0%, calc(-50% + 65px), 0) scale(0.77);
 }
 
 #nouns-track .carousel-item.carousel-hidden {
-  transform: translate(0%, -50%);
+  transform: translate3d(0%, calc(-50% - 130px), 0) scale(0.64);
 }
 
 /* Focus - largest, center */
 .carousel-item.carousel-focus {
   opacity: 1;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: 300;
   color: var(--color-text);
 }
@@ -391,32 +403,33 @@ a:focus-visible {
 /* One step away - medium size */
 .carousel-item.carousel-above {
   opacity: 0.5;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   font-weight: 300;
 }
 
 .carousel-item.carousel-below {
   opacity: 0.5;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   font-weight: 300;
 }
 
 /* Two steps away - smallest */
 .carousel-item.carousel-far-above {
   opacity: 0.25;
-  font-size: 0.85rem;
+  font-size: 1.2rem;
   font-weight: 300;
 }
 
 .carousel-item.carousel-far-below {
   opacity: 0.25;
-  font-size: 0.85rem;
+  font-size: 1.2rem;
   font-weight: 300;
 }
 
 .carousel-item.carousel-hidden {
   opacity: 0;
   font-weight: 300;
+  font-size: 1.2rem;
 }
 
 /* Accessibility: visually hidden but available to screen readers */
@@ -448,7 +461,7 @@ a:focus-visible {
    ============================================================================ */
 .social {
   text-align: center;
-  margin: var(--spacing-md) 0;
+  margin: 0 0 0 0;
 }
 
 .social nav {
@@ -791,15 +804,15 @@ a:focus-visible {
    ============================================================================ */
 .footer {
   text-align: center;
-  margin-top: var(--spacing-lg);
-  padding: var(--spacing-md) 0;
+  margin-top: 0;
+  padding: 0;
   color: #8b8b8b;
 }
 
 .footer hr {
   border: 0;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
-  margin-bottom: var(--spacing-md);
+  margin-bottom: var(--spacing-sm);
 }
 
 .copyright {
