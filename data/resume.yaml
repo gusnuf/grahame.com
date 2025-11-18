@@ -53,7 +53,7 @@ work:
         url: null
     highlights:
       - Short-term consulting engagement providing cloud architecture and platform strategy for growing technology company
-      - Built demonstration applications using React, Python, and serverless infrastructure to maintain hands-on expertise
+      - Built demonstration applications using Svelte, Python, and serverless infrastructure to maintain hands-on expertise
       - Applied enterprise-grade architecture patterns to help optimize cloud infrastructure and development workflows
 
   - name: Progress Software
@@ -273,6 +273,7 @@ skills:
   - name: Development
     keywords:
       - React
+      - Svelte
       - Node.js
       - NestJS
 
