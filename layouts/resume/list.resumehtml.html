@@ -126,6 +126,37 @@
         top: 1em;
       }
 
+      dl {
+        padding-left: 0;
+        margin: 0.5rem 0;
+      }
+
+      dl > div {
+        margin-top: 0.5rem;
+        padding-left: 2rem;
+        text-indent: -2rem;
+        line-height: 1.6;
+      }
+
+      dl > div:first-child {
+        margin-top: 0;
+      }
+
+      dt {
+        font-weight: 600;
+        color: #1c097d;
+        display: inline;
+      }
+
+      dt::after {
+        content: ": ";
+      }
+
+      dd {
+        display: inline;
+        margin: 0;
+      }
+
       .projects-cell {
         background: #d4d4c4;
         padding: 0.75rem;
@@ -204,11 +235,16 @@
       <p>{{ $resume.basics.summary }}</p>
 
       <h2>HIGHLIGHTS</h2>
-      <ul>
+      <dl class="resume-highlights">
         {{- range $resume.xHighlights }}
-        <li>{{ . }}</li>
+        {{- range $term, $definition := . }}
+        <div>
+          <dt>{{ $term }}</dt>
+          <dd>{{ $definition }}</dd>
+        </div>
         {{- end }}
-      </ul>
+        {{- end }}
+      </dl>
 
       <h2>EXPERIENCE</h2>
       {{- range $job := $resume.work }}

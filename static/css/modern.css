@@ -710,7 +710,7 @@ a:focus-visible {
 
 .job-projects {
   background: #d4d4c4;
-  padding: var(--spacing-sm);
+  padding: var(--spacing-sm) var(--spacing-sm) var(--spacing-xs) var(--spacing-sm);
   border-radius: var(--border-radius);
   margin: 0 0 var(--spacing-sm) var(--spacing-md);
   font-size: 0.75rem;
@@ -764,6 +764,9 @@ a:focus-visible {
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 2px;
+  display: inline;
+  margin: 0;
+  padding: 0;
 }
 
 .job-projects-list {
@@ -777,6 +780,10 @@ a:focus-visible {
   text-indent: 0;
   padding-left: 1rem;
   position: relative;
+}
+
+.job-projects-list div:last-child {
+  margin-bottom: 0;
 }
 
 .job-projects-list div::before {
@@ -815,24 +822,33 @@ a:focus-visible {
 /* Highlights Section */
 .resume-highlights {
   padding-left: 0;
-  list-style: none;
+  margin: var(--spacing-sm) 0;
 }
 
-.resume-highlights li {
-  margin-bottom: var(--spacing-xs);
-  padding-left: 1.5rem;
-  position: relative;
+.resume-highlights > div {
+  margin-top: var(--spacing-xs);
+  padding-left: 2rem;
+  text-indent: -2rem;
   line-height: 1.6;
 }
 
-.resume-highlights li::before {
-  content: "■";
-  position: absolute;
-  left: 0.4rem;
-  color: var(--color-primary);
+.resume-highlights > div:first-child {
+  margin-top: 0;
+}
+
+.resume-highlights dt {
   font-weight: 600;
-  font-size: 0.6em;
-  top: 0.5em;
+  color: var(--color-primary);
+  display: inline;
+}
+
+.resume-highlights dt::after {
+  content: ": ";
+}
+
+.resume-highlights dd {
+  display: inline;
+  margin: 0;
 }
 
 /* Skills Section */
@@ -846,11 +862,11 @@ a:focus-visible {
 }
 
 /* Education Section */
-.resume section div:has(a) {
+.education-item {
   margin-bottom: var(--spacing-md);
 }
 
-.resume section div a {
+.education-item a {
   color: var(--color-accent);
   font-weight: 700;
 }

@@ -38,11 +38,16 @@
 
   <section>
     <h2>Highlights</h2>
-    <ul class="resume-highlights">
+    <dl class="resume-highlights">
       {{- range $resume.xHighlights }}
-      <li>{{ . }}</li>
+      {{- range $term, $definition := . }}
+      <div>
+        <dt>{{ $term }}</dt>
+        <dd>{{ $definition }}</dd>
+      </div>
       {{- end }}
-    </ul>
+      {{- end }}
+    </dl>
   </section>
 
   <section>
@@ -97,7 +102,7 @@
   <section>
     <h2>Education</h2>
     {{- range $edu := $resume.education }}
-    <div style="margin-bottom: 1em;">
+    <div class="education-item">
       <p><strong><a href="{{ $edu.url }}">{{ $edu.institution }}</a></strong> - {{ $edu.xLocation }}<br>
       {{ if $edu.studyType }}{{ $edu.studyType }}{{ if $edu.area }} in {{ $edu.area }}{{ end }}<br>{{ end }}
       {{ if $edu.courses }}<small>Courses in {{ delimit $edu.courses ", " }}</small>{{ end }}

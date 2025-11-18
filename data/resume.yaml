@@ -7,7 +7,7 @@ basics:
   email: jobs@grahame.com
   phone: +1 (919) 828-9879
   url: https://grahame.com
-  summary: Senior Principal Software Engineer with extensive experience building scalable systems, internal platforms, and developer-facing tools. A curious generalist with a track record of leading architecture efforts, improving developer experience, and driving cross-functional impact across infrastructure and application domains.
+  summary: Senior Principal Software Engineer with extensive experience building scalable systems, internal platforms, and developer-facing tools. T-shaped professional with broad technical range and deep platform engineering expertise, leading architecture efforts and driving cross-functional impact across infrastructure and application domains.
   location:
     city: Raleigh
     region: NC
@@ -16,10 +16,10 @@ basics:
 
 # Custom extension: career highlights (not in JSON Resume standard)
 xHighlights:
-  - Extensive software development, design, and operations experience
-  - Highly curious generalist
-  - Focus on platform engineering and developer experience (DevEx)
-  - Depth in language, educational, and community projects
+  - Platform Engineering Leader: Delivered self-service platforms to hundreds of enterprise teams
+  - Full-Stack to Infrastructure: Hands-on expertise across application, platform, and infrastructure
+  - Engineering Director: Led multi-region teams building cloud control planes at Fortune 500 scale
+  - Developer Experience Champion: Drove platform adoption through enablement and evangelism
 
 # Custom extension: online metadata for resume distribution
 xOnline:
@@ -38,7 +38,7 @@ xOnline:
 
 work:
   - name: GrayM Systems
-    position: Founder
+    position: Technical Consultant
     url: https://graym.com
     startDate: "2025-03"
     location: Raleigh, NC
@@ -52,9 +52,8 @@ work:
       - name: Cloud Architecture Engagement
         url: null
     highlights:
-      - Founded technology company to explore entrepreneurial opportunities while maintaining hands-on technical expertise
-      - Built LangGuessr game using modern JavaScript, Python, and cloud infrastructure demonstrating full-stack capabilities
-      - Provided strategic cloud architecture and platform planning expertise for a growing technology company
+      - Short-term consulting engagement providing cloud architecture and platform strategy for growing technology company
+      - Built demonstration applications using React, Python, and serverless infrastructure to maintain hands-on expertise
       - Applied enterprise-grade architecture patterns to help optimize cloud infrastructure and development workflows
 
   - name: Progress Software
