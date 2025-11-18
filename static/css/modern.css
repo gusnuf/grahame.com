@@ -292,7 +292,7 @@ a:focus-visible {
 
 .carousel-item {
   font-family: var(--font-secondary);
-  font-weight: 200;
+  font-weight: 300;
   color: var(--color-text-muted);
   font-size: 0.9rem;
   opacity: 0;
@@ -302,87 +302,89 @@ a:focus-visible {
   transition:
     opacity 0.8s cubic-bezier(0.6, 0, 0.2, 1),
     transform 0.8s cubic-bezier(0.6, 0, 0.2, 1),
-    font-size 0.8s ease,
-    font-weight 0.4s ease;
+    font-size 0.8s cubic-bezier(0.6, 0, 0.2, 1);
   white-space: nowrap;
   pointer-events: none;
+  will-change: transform, opacity;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 #adjectives-track .carousel-item {
   text-align: right;
   left: 100%;
-  transform: translate(-100%, -50%) scale(0.8);
+  transform: translate(-100%, -50%);
 }
 
 #adjectives-track .carousel-item.carousel-focus {
   opacity: 1;
-  transform: translate(-100%, -50%) scale(1);
+  transform: translate(-100%, -50%);
 }
 
 #adjectives-track .carousel-item.carousel-above {
   opacity: 0.5;
-  transform: translate(-100%, calc(-50% - 35px)) scale(0.9);
+  transform: translate(-100%, calc(-50% - 35px));
 }
 
 #adjectives-track .carousel-item.carousel-below {
   opacity: 0.5;
-  transform: translate(-100%, calc(-50% + 35px)) scale(0.9);
+  transform: translate(-100%, calc(-50% + 35px));
 }
 
 #adjectives-track .carousel-item.carousel-far-above {
   opacity: 0.25;
-  transform: translate(-100%, calc(-50% - 65px)) scale(0.8);
+  transform: translate(-100%, calc(-50% - 65px));
 }
 
 #adjectives-track .carousel-item.carousel-far-below {
   opacity: 0.25;
-  transform: translate(-100%, calc(-50% + 65px)) scale(0.8);
+  transform: translate(-100%, calc(-50% + 65px));
 }
 
 #adjectives-track .carousel-item.carousel-hidden {
-  transform: translate(-100%, -50%) scale(0.7);
+  transform: translate(-100%, -50%);
 }
 
 #nouns-track .carousel-item {
   text-align: left;
   left: 0%;
-  transform: translate(0%, -50%) scale(0.8);
+  transform: translate(0%, -50%);
 }
 
 #nouns-track .carousel-item.carousel-focus {
   opacity: 1;
-  transform: translate(0%, -50%) scale(1);
+  transform: translate(0%, -50%);
 }
 
 #nouns-track .carousel-item.carousel-above {
   opacity: 0.5;
-  transform: translate(0%, calc(-50% - 35px)) scale(0.9);
+  transform: translate(0%, calc(-50% - 35px));
 }
 
 #nouns-track .carousel-item.carousel-below {
   opacity: 0.5;
-  transform: translate(0%, calc(-50% + 35px)) scale(0.9);
+  transform: translate(0%, calc(-50% + 35px));
 }
 
 #nouns-track .carousel-item.carousel-far-above {
   opacity: 0.25;
-  transform: translate(0%, calc(-50% - 65px)) scale(0.8);
+  transform: translate(0%, calc(-50% - 65px));
 }
 
 #nouns-track .carousel-item.carousel-far-below {
   opacity: 0.25;
-  transform: translate(0%, calc(-50% + 65px)) scale(0.8);
+  transform: translate(0%, calc(-50% + 65px));
 }
 
 #nouns-track .carousel-item.carousel-hidden {
-  transform: translate(0%, -50%) scale(0.7);
+  transform: translate(0%, -50%);
 }
 
 /* Focus - largest, center */
 .carousel-item.carousel-focus {
   opacity: 1;
   font-size: 1.5rem;
-  font-weight: 400;
+  font-weight: 300;
   color: var(--color-text);
 }
 
@@ -403,17 +405,18 @@ a:focus-visible {
 .carousel-item.carousel-far-above {
   opacity: 0.25;
   font-size: 0.85rem;
-  font-weight: 200;
+  font-weight: 300;
 }
 
 .carousel-item.carousel-far-below {
   opacity: 0.25;
   font-size: 0.85rem;
-  font-weight: 200;
+  font-weight: 300;
 }
 
 .carousel-item.carousel-hidden {
   opacity: 0;
+  font-weight: 300;
 }
 
 /* Accessibility: visually hidden but available to screen readers */
